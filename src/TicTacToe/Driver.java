@@ -12,6 +12,10 @@ public class Driver extends TicTacToeFrame{
 	public static void main(String [] args){
 		
 		new TicTacToeFrame().setVisible(true);;
+		
+		/*
+		 * Testi on kommentoitu ulos koska grafiikka toimii yllä olevalla käskyllä.
+		 */
 		/*
 		Pelilauta lauta = new Pelilauta();
 		Nappula[] X = new Nappula[9];

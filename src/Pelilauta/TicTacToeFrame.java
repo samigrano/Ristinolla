@@ -18,17 +18,23 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 	Nappula [] nappula = new Nappula[9];
 	
 	public TicTacToeFrame(){
+		
+		//Luo uuden kehyksen ja 
 		super("TicTacToe - Sami&Joonas");
 		setSize(400, 400);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		// Tekee nappulat laudalle näkyviin.
 		p.setLayout(new GridLayout(3,3));
 		for(int i=0; i<9; i++){
 			nappula[i] = new Nappula();
 			p.add(nappula[i]);
 		}
+		// Lisää laudan kehykseen.
 		add(p);
 		
+		//Tekee menu valikon ja nappeja.
 		JMenuBar bar  = new JMenuBar();
 		JMenu file = new JMenu("File");
 		JMenuItem newFile = new JMenuItem("New");
@@ -36,11 +42,13 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		JMenuItem load = new JMenuItem("Load");
 		JMenuItem close = new JMenuItem("Exit");
 		
+		//Lisää kuuntelijat valikon nappeihin.
 		newFile.addActionListener(this);
 		save.addActionListener(this);
 		load.addActionListener(this);
 		close.addActionListener(this);
 		
+		//Lisää napit valikkoon
 		setJMenuBar(bar);
 		bar.add(file);
 		file.add(newFile);
@@ -50,7 +58,10 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		file.add(close);
 		
 		}
-	
+		/*Nappien vaikutukset valikossa. Tonne pitää lisätä
+		 * tonne pitää lisätä vielä toiminnalisuudet newGamelle, savelle ja loadille.
+		 * Exit toimii jo.
+		 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String name = e.getActionCommand();

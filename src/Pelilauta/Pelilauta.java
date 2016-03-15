@@ -1,5 +1,10 @@
 package Pelilauta;
 
+/*
+ * Luokka on tällä hetkellä erroris, kun nappi ei toimi enää näin.
+ * Mutta pitää koittaa kytkee nää säännöt tohon uuteen grafiikkaan.
+ */
+
 
 import java.util.ArrayList;
 import Nappula.*;
