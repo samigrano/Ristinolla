@@ -1,6 +1,7 @@
 package Pelilauta;
 
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,6 +20,7 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		
 		setLayout(new FlowLayout());
 		
+		//Pelin aloitus, tallennus lautausta varten olevat napit.
 		JButton newGame = new JButton("New");
 		JButton saveGame = new JButton("Save");
 		JButton loadGame = new JButton("Load");
@@ -32,8 +34,18 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		System.out.println("Moi Joonas painoit nappia");
+	public void actionPerformed(ActionEvent e) {
+		String name = e.getActionCommand();
+		
+		if(name.equals("New")){
+			System.out.println("Painoit New nappia");
+		}
+		else if(name.equals("Save")){
+			System.out.println("Painoit Save nappia");
+		}
+		else if(name.equals("Load")){
+			System.out.println("Painoit Load nappia");
+		}
 		
 	}
 }
