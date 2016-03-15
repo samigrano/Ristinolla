@@ -9,6 +9,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+
 import Nappula.Nappula;
 
 public class TicTacToeFrame extends JFrame implements ActionListener {
@@ -21,7 +22,7 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		
 		//Luo uuden kehyksen ja 
 		super("TicTacToe - Sami&Joonas");
-		setSize(400, 400);
+		setSize(600, 600);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
@@ -65,8 +66,6 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String name = e.getActionCommand();
-		
-		Pelilauta lauta = new Pelilauta();
 		
 		if(name.equals("New")){
 			new TicTacToeFrame();

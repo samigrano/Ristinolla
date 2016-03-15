@@ -15,10 +15,13 @@ public class Nappula extends JButton implements ActionListener{
 	private int x;
 	private int y;*/
 	
-	// Hakee nappulalle kuvakkeet. Noi vois olla kauniimmatkin. kuhan v‰s‰sin jotain.
+	/* Hakee nappulalle kuvakkeet. 
+	 * Noi vois olla kauniimmatkin. kuhan v‰s‰sin jotain.
+	 * Kuvia voi muokata ja ladata paremmat.
+	 */
 	public Nappula(){
-		X = new ImageIcon(getClass().getResource("X.png"));
-		O = new ImageIcon(getClass().getResource("O.png"));
+		X = new ImageIcon(getClass().getResource("X2.png"));
+		O = new ImageIcon(getClass().getResource("O2.jpg"));
 		this.addActionListener(this);
 	}
 	// Lis‰‰ toiminnat kun nappeja painaa. value m‰‰r‰‰ kuin monta kertaa on painettu.
