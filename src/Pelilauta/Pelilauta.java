@@ -5,17 +5,20 @@ package Pelilauta;
  * Mutta pit‰‰ koittaa kytkee n‰‰ s‰‰nnˆt tohon uuteen grafiikkaan.
  */
 
-
+import Nappula.Apu;
 import java.util.ArrayList;
+import java.util.Collection;
+
 import Nappula.*;
 public class Pelilauta {
 	
-	private Nappula nappula;
 	
-	ArrayList<Nappula> nappulat = new ArrayList<>();
+	private Apu apu;
+	
+	static ArrayList<Apu> nappulat = new ArrayList<>();
 	
 	//Tulostus kopioitu suoraan shakkiprojektista
-	public void piirraLauta(){
+	public static void piirraLauta(){
 		int riviNumero = 3;
 		for (int y = 3; y >= 1; y--){
 			System.out.print(riviNumero + "|");
@@ -31,14 +34,15 @@ public class Pelilauta {
 	
 	}
 	
-	public void lisaaLautaan(Nappula nappula){
-		nappulat.add(nappula);
+	public static void lisaaLautaan(Apu uusi){
+		nappulat.add(uusi);
+		piirraLauta();
 	}
 	
 	//T‰ll‰ testataan onko jossain koordinaatissa jokin nappula
-	private char piirraNappula(int x, int y){
+	private static char piirraNappula(int x, int y){
 	
-		for (Nappula nappula : nappulat){
+		for (Apu nappula : nappulat){
 			if (nappula.getX() == x && nappula.getY() == y){
 				
 				return nappula.getId();
@@ -52,7 +56,7 @@ public class Pelilauta {
 	
 	//K‰y nappula listan l‰pi ja tarkistaa onko ruutu annetuilla koordinaateilla vapaa
 	public boolean ruutuVapaa(int x, int y){
-		for (Nappula nappula : nappulat){
+		for (Apu nappula : nappulat){
 			if (nappula.getX() == x && nappula.getY() == y){
 				return false;
 			}
@@ -111,14 +115,14 @@ public class Pelilauta {
 	public boolean tarkastaYlinVaakarivi(){
 		int laskuri = 0;
 		char id = 'e'; // 'e' empty aluksi
-		for (Nappula nappula : nappulat){
+		for (Apu nappula : nappulat){
 			
 			if (nappula.getX() == 1 && nappula.getY() == 3){
 				id = nappula.getId();
 			}
 		}
 		
-		for (Nappula nappula : nappulat){
+		for (Apu nappula : nappulat){
 			if ((nappula.getX() == 1 && nappula.getY() == 3 && nappula.getId() == id) || 
 				(nappula.getX() == 2 && nappula.getY() == 3 && nappula.getId() == id) || 
 				(nappula.getX() == 3 && nappula.getY() == 3 && nappula.getId() == id) ){
@@ -142,13 +146,13 @@ public class Pelilauta {
 		int laskuri = 0;
 		char id = 'e';
 		
-		for (Nappula nappula : nappulat){
+		for (Apu nappula : nappulat){
 			if (nappula.getX() == 1 && nappula.getY() == 1){
 				id = nappula.getId();
 			}
 		}
 		
-		for (Nappula nappula : nappulat){
+		for (Apu nappula : nappulat){
 			if ((nappula.getX() == 1 && nappula.getY() == 1 && nappula.getId() == id) || 
 				(nappula.getX() == 2 && nappula.getY() == 1 && nappula.getId() == id) || 
 				(nappula.getX() == 3 && nappula.getY() == 1 && nappula.getId() == id) ){
@@ -171,13 +175,13 @@ public class Pelilauta {
 		int laskuri = 0;
 		char id = 'e';
 		
-		for (Nappula nappula : nappulat){
+		for (Apu nappula : nappulat){
 			if (nappula.getX() == 1 && nappula.getY() == 2){
 				id = nappula.getId();
 			}
 		}
 		
-		for (Nappula nappula : nappulat){
+		for (Apu nappula : nappulat){
 			if ((nappula.getX() == 1 && nappula.getY() == 2 && nappula.getId() == id) || 
 				(nappula.getX() == 2 && nappula.getY() == 2 && nappula.getId() == id) || 
 				(nappula.getX() == 3 && nappula.getY() == 2 && nappula.getId() == id) ){
@@ -199,14 +203,14 @@ public class Pelilauta {
 	public boolean tarkastaVasenPystyrivi(){
 		int laskuri = 0;
 		char id = 'e'; // 'e' empty aluksi
-		for (Nappula nappula : nappulat){
+		for (Apu nappula : nappulat){
 			
 			if (nappula.getX() == 1 && nappula.getY() == 1){
 				id = nappula.getId();
 			}
 		}
 		
-		for (Nappula nappula : nappulat){
+		for (Apu nappula : nappulat){
 			if ((nappula.getX() == 1 && nappula.getY() == 1 && nappula.getId() == id) || 
 				(nappula.getX() == 1 && nappula.getY() == 2 && nappula.getId() == id) || 
 				(nappula.getX() == 1 && nappula.getY() == 3 && nappula.getId() == id) ){
@@ -228,14 +232,14 @@ public class Pelilauta {
 	public boolean tarkastaKeskiPystyrivi(){
 		int laskuri = 0;
 		char id = 'e'; // 'e' empty aluksi
-		for (Nappula nappula : nappulat){
+		for (Apu nappula : nappulat){
 			
 			if (nappula.getX() == 2 && nappula.getY() == 1){
 				id = nappula.getId();
 			}
 		}
 		
-		for (Nappula nappula : nappulat){
+		for (Apu nappula : nappulat){
 			if ((nappula.getX() == 2 && nappula.getY() == 1 && nappula.getId() == id) || 
 				(nappula.getX() == 2 && nappula.getY() == 2 && nappula.getId() == id) || 
 				(nappula.getX() == 2 && nappula.getY() == 3 && nappula.getId() == id) ){
@@ -257,14 +261,14 @@ public class Pelilauta {
 	public boolean tarkastaOikeaPystyrivi(){
 		int laskuri = 0;
 		char id = 'e'; // 'e' empty aluksi
-		for (Nappula nappula : nappulat){
+		for (Apu nappula : nappulat){
 			
 			if (nappula.getX() == 3 && nappula.getY() == 1){
 				id = nappula.getId();
 			}
 		}
 		
-		for (Nappula nappula : nappulat){
+		for (Apu nappula : nappulat){
 			if ((nappula.getX() == 3 && nappula.getY() == 1 && nappula.getId() == id) || 
 				(nappula.getX() == 3 && nappula.getY() == 2 && nappula.getId() == id) || 
 				(nappula.getX() == 3 && nappula.getY() == 3 && nappula.getId() == id) ){
@@ -286,14 +290,14 @@ public class Pelilauta {
 	public boolean tarkastaVinoVasenalaOikeayla(){
 		int laskuri = 0;
 		char id = 'e'; // 'e' empty aluksi
-		for (Nappula nappula : nappulat){
+		for (Apu nappula : nappulat){
 			
 			if (nappula.getX() == 1 && nappula.getY() == 1){
 				id = nappula.getId();
 			}
 		}
 		
-		for (Nappula nappula : nappulat){
+		for (Apu nappula : nappulat){
 			if ((nappula.getX() == 1 && nappula.getY() == 1 && nappula.getId() == id) || 
 				(nappula.getX() == 2 && nappula.getY() == 2 && nappula.getId() == id) || 
 				(nappula.getX() == 3 && nappula.getY() == 3 && nappula.getId() == id) ){
@@ -315,14 +319,14 @@ public class Pelilauta {
 	public boolean tarkastaVinoVasenylaOikeaala(){
 		int laskuri = 0;
 		char id = 'e'; // 'e' empty aluksi
-		for (Nappula nappula : nappulat){
+		for (Apu nappula : nappulat){
 			
 			if (nappula.getX() == 1 && nappula.getY() == 3){
 				id = nappula.getId();
 			}
 		}
 		
-		for (Nappula nappula : nappulat){
+		for (Apu nappula : nappulat){
 			if ((nappula.getX() == 1 && nappula.getY() == 3 && nappula.getId() == id) || 
 				(nappula.getX() == 2 && nappula.getY() == 2 && nappula.getId() == id) || 
 				(nappula.getX() == 3 && nappula.getY() == 1 && nappula.getId() == id) ){
