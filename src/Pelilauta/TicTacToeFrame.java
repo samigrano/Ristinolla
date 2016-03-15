@@ -1,41 +1,34 @@
 package Pelilauta;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import Nappula.Nappula;
 
 public class TicTacToeFrame extends JFrame implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
+	JPanel p = new JPanel();
+	Nappula [] nappula = new Nappula[9];
 	
 	public TicTacToeFrame(){
 		super("TicTacToe - Sami&Joonas");
-		setSize(300, 300);
-		setResizable(true);
+		setSize(400, 400);
+		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		p.setLayout(new GridLayout(3,3));
+		for(int i=0; i<9; i++){
+			nappula[i] = new Nappula();
+			p.add(nappula[i]);
+		}
+		add(p);
 		
-		setLayout(new FlowLayout());
-		
-		//Pelin aloitus, tallennus lautausta varten olevat napit.
-		JButton newGame = new JButton("New");
-		JButton saveGame = new JButton("Save");
-		JButton loadGame = new JButton("Load");
-		newGame.addActionListener(this);
-		saveGame.addActionListener(this);
-		loadGame.addActionListener(this);
-		add(newGame);
-		add(saveGame);
-		add(loadGame);
-		
-		//Vaihtoehto napeille, tehdä menubar.
 		JMenuBar bar  = new JMenuBar();
 		JMenu file = new JMenu("File");
 		JMenuItem newFile = new JMenuItem("New");
@@ -56,8 +49,8 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		file.addSeparator();
 		file.add(close);
 		
-	}
-
+		}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String name = e.getActionCommand();
@@ -65,7 +58,7 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		Pelilauta lauta = new Pelilauta();
 		
 		if(name.equals("New")){
-			lauta.piirraLauta(); // Piirtää uuden laudan
+			new TicTacToeFrame();
 		}
 		else if(name.equals("Save")){
 			System.out.println("Painoit Save nappia");
