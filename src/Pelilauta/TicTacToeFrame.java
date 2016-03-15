@@ -14,6 +14,7 @@ import Nappula.Nappula;
 
 public class TicTacToeFrame extends JFrame implements ActionListener {
 	
+	static int vuoro = 0;
 	private static final long serialVersionUID = 1L;
 	JPanel p = new JPanel();
 	Nappula [] nappula = new Nappula[9];
@@ -34,6 +35,7 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		}
 		// Lis‰‰ laudan kehykseen.
 		add(p);
+		
 		
 		//Tekee menu valikon ja nappeja.
 		JMenuBar bar  = new JMenuBar();
@@ -81,5 +83,13 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 			System.exit(0);
 		}
 		
+	}
+	
+	public static int getVuoro(){
+		return vuoro;
+	}
+	
+	public static void kasvataVuoro(){
+		vuoro++;
 	}
 }

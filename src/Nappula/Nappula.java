@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import Pelilauta.TicTacToeFrame;
+
 public class Nappula extends JButton implements ActionListener{
 	ImageIcon X,O;
 	int value=0;
@@ -20,24 +22,24 @@ public class Nappula extends JButton implements ActionListener{
 	 * Kuvia voi muokata ja ladata paremmat.
 	 */
 	public Nappula(){
-		X = new ImageIcon(getClass().getResource("X2.png"));
-		O = new ImageIcon(getClass().getResource("O2.jpg"));
+		X = new ImageIcon(getClass().getResource("X.png"));
+		O = new ImageIcon(getClass().getResource("O.png"));
 		this.addActionListener(this);
 	}
 	// Lis‰‰ toiminnat kun nappeja painaa. value m‰‰r‰‰ kuin monta kertaa on painettu.
 	@Override
 	public void actionPerformed(ActionEvent e) {
-			value++;
-			value%=3;
-			if(value==0){
-				setIcon(null);
-			}
-			if(value==1){
-				setIcon(X);
-			}
-			if(value==2){
-				setIcon(O);
-			}
+		
+		TicTacToeFrame.kasvataVuoro();
+	
+		if(TicTacToeFrame.getVuoro()%2 == 0){
+		
+			setIcon(O);
+		}
+		if(TicTacToeFrame.getVuoro()%2 == 1){
+			
+			setIcon(X);
+		}
 	}
 	// Kommentoin ulos kun en tie miten voidaan hyˆdynt‰‰ n‰is grafiikois.
 	/*
