@@ -10,8 +10,8 @@ public class Testi {
 		
 		
 		Nappula x1 = new Nappula('X',6,1);
-		Nappula o1 = new Nappula('X',1,2);
-		Nappula o2 = new Nappula('X',3,2);
+		Nappula o1 = new Nappula('X',1,3);
+		Nappula o2 = new Nappula('X',3,1);
 		Nappula o4 = new Nappula('X',2,2);
 		
 		lauta.lisaaLautaan(x1);

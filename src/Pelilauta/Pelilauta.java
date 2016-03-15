@@ -63,10 +63,12 @@ public class Pelilauta {
 		return false;
 	}
 	
-	//Koko laudan tarkistus kerralla. 
-	//Voi käyttää jokaisen siiron jälkeen tarkistamaan päättyykö peli.
-	//Kutsuu vaaka- ,pysty- ja vinojen- rivien tarkistusmetodeita. 
-	//Palauttaa true jos joltain riviltä löytyy kolme samaa nappulaa.
+	/*
+	 * Koko laudan tarkistus kerralla. 
+	 * Voi käyttää jokaisen siiron jälkeen tarkistamaan päättyykö peli.
+	 * Kutsuu vaaka- ,pysty- ja vinojen- rivien tarkistusmetodeita. 
+	 * Palauttaa true jos joltain riviltä löytyy kolme samaa nappulaa.
+	*/
 	public boolean tarkastaLauta(){
 		if(tarkastaYlinVaakarivi()){
 			return true;
@@ -77,13 +79,30 @@ public class Pelilauta {
 		if(tarkastaAlinVaakarivi()){
 			return true;
 		}
+		if(tarkastaVasenPystyrivi()){
+			return true;
+		}
+		if(tarkastaKeskiPystyrivi()){
+			return true;
+		}
+		if(tarkastaOikeaPystyrivi()){
+			return true;
+		}
+		if(tarkastaVinoVasenalaOikeayla()){
+			return true;
+		}
+		if(tarkastaVinoVasenylaOikeaala()){
+			return true;
+		}
 		
 		return false;
 	}
 	
-	//Tarkistaa ensin mikä nappulan id on koordinaattipisteessä (1,3).
-	//Sen jälkeen vertaa löytyykö (2,3) ja (3,3) sama id.
-	//Jos löytyy palautetaan true.
+	/*
+	 * Tarkistaa ensin mikä nappulan id on koordinaattipisteessä (1,3).
+	 * Sen jälkeen vertaa löytyykö (2,3) ja (3,3) sama id.
+	 * Jos löytyy palautetaan true.
+	*/
 	public boolean tarkastaYlinVaakarivi(){
 		int laskuri = 0;
 		char id = 'e'; // 'e' empty aluksi
@@ -109,9 +128,11 @@ public class Pelilauta {
 		return false;
 	}
 	
-	//Tarkistaa ensin mikä nappulan id on koordinaattipisteessä (1,1).
-	//Sen jälkeen vertaa löytyykö (2,1) ja (3,1) sama id.
-	//Jos löytyy palautetaan true.
+	/*
+	 * Tarkistaa ensin mikä nappulan id on koordinaattipisteessä (1,1).
+	 * Sen jälkeen vertaa löytyykö (2,1) ja (3,1) sama id.
+	 * Jos löytyy palautetaan true.
+	*/
 	public boolean tarkastaAlinVaakarivi(){
 		int laskuri = 0;
 		char id = 'e';
@@ -137,9 +158,10 @@ public class Pelilauta {
 		return false;
 	}
 	
-	//Tarkistaa ensin mikä nappulan id on koordinaattipisteessä (1,2).
-	//Sen jälkeen vertaa löytyykö (2,2) ja (3,2) sama id.
-	//Jos löytyy palautetaan true.
+	/*Tarkistaa ensin mikä nappulan id on koordinaattipisteessä (1,2).
+	 * Sen jälkeen vertaa löytyykö (2,2) ja (3,2) sama id.
+	 * Jos löytyy palautetaan true.
+	*/
 	public boolean tarkastaKeskimmäinenVaakarivi(){
 		int laskuri = 0;
 		char id = 'e';
@@ -154,6 +176,151 @@ public class Pelilauta {
 			if ((nappula.getX() == 1 && nappula.getY() == 2 && nappula.getId() == id) || 
 				(nappula.getX() == 2 && nappula.getY() == 2 && nappula.getId() == id) || 
 				(nappula.getX() == 3 && nappula.getY() == 2 && nappula.getId() == id) ){
+				laskuri++;
+			}
+		}
+		
+		if (laskuri == 3){
+			return true;
+		}
+		
+		return false;
+	}
+	/*
+	 * Tarkistaa ensin mikä nappulan id on koordinaattipisteessä (1,1).
+	 * Sen jälkeen vertaa löytyykö (1,2) ja (1,3) sama id.
+	 * Jos löytyy palautetaan true.
+	*/
+	public boolean tarkastaVasenPystyrivi(){
+		int laskuri = 0;
+		char id = 'e'; // 'e' empty aluksi
+		for (Nappula nappula : nappulat){
+			
+			if (nappula.getX() == 1 && nappula.getY() == 1){
+				id = nappula.getId();
+			}
+		}
+		
+		for (Nappula nappula : nappulat){
+			if ((nappula.getX() == 1 && nappula.getY() == 1 && nappula.getId() == id) || 
+				(nappula.getX() == 1 && nappula.getY() == 2 && nappula.getId() == id) || 
+				(nappula.getX() == 1 && nappula.getY() == 3 && nappula.getId() == id) ){
+				laskuri++;
+			}
+		}
+		
+		if (laskuri == 3){
+			return true;
+		}
+		
+		return false;
+	}
+	/*
+	 * Tarkistaa ensin mikä nappulan id on koordinaattipisteessä (2,1).
+	 * Sen jälkeen vertaa löytyykö (2,2) ja (2,3) sama id.
+	 * Jos löytyy palautetaan true.
+	*/
+	public boolean tarkastaKeskiPystyrivi(){
+		int laskuri = 0;
+		char id = 'e'; // 'e' empty aluksi
+		for (Nappula nappula : nappulat){
+			
+			if (nappula.getX() == 2 && nappula.getY() == 1){
+				id = nappula.getId();
+			}
+		}
+		
+		for (Nappula nappula : nappulat){
+			if ((nappula.getX() == 2 && nappula.getY() == 1 && nappula.getId() == id) || 
+				(nappula.getX() == 2 && nappula.getY() == 2 && nappula.getId() == id) || 
+				(nappula.getX() == 2 && nappula.getY() == 3 && nappula.getId() == id) ){
+				laskuri++;
+			}
+		}
+		
+		if (laskuri == 3){
+			return true;
+		}
+		
+		return false;
+	}
+	/*
+	 * Tarkistaa ensin mikä nappulan id on koordinaattipisteessä (3,1).
+	 * Sen jälkeen vertaa löytyykö (3,2) ja (3,3) sama id.
+	 * Jos löytyy palautetaan true.
+	*/
+	public boolean tarkastaOikeaPystyrivi(){
+		int laskuri = 0;
+		char id = 'e'; // 'e' empty aluksi
+		for (Nappula nappula : nappulat){
+			
+			if (nappula.getX() == 3 && nappula.getY() == 1){
+				id = nappula.getId();
+			}
+		}
+		
+		for (Nappula nappula : nappulat){
+			if ((nappula.getX() == 3 && nappula.getY() == 1 && nappula.getId() == id) || 
+				(nappula.getX() == 3 && nappula.getY() == 2 && nappula.getId() == id) || 
+				(nappula.getX() == 3 && nappula.getY() == 3 && nappula.getId() == id) ){
+				laskuri++;
+			}
+		}
+		
+		if (laskuri == 3){
+			return true;
+		}
+		
+		return false;
+	}
+	/*
+	 * Tarkistaa ensin mikä nappulan id on koordinaattipisteessä (1,1).
+	 * Sen jälkeen vertaa löytyykö (2,2) ja (3,3) sama id.
+	 * Jos löytyy palautetaan true.
+	*/
+	public boolean tarkastaVinoVasenalaOikeayla(){
+		int laskuri = 0;
+		char id = 'e'; // 'e' empty aluksi
+		for (Nappula nappula : nappulat){
+			
+			if (nappula.getX() == 1 && nappula.getY() == 1){
+				id = nappula.getId();
+			}
+		}
+		
+		for (Nappula nappula : nappulat){
+			if ((nappula.getX() == 1 && nappula.getY() == 1 && nappula.getId() == id) || 
+				(nappula.getX() == 2 && nappula.getY() == 2 && nappula.getId() == id) || 
+				(nappula.getX() == 3 && nappula.getY() == 3 && nappula.getId() == id) ){
+				laskuri++;
+			}
+		}
+		
+		if (laskuri == 3){
+			return true;
+		}
+		
+		return false;
+	}
+	/*
+	 * Tarkistaa ensin mikä nappulan id on koordinaattipisteessä (1,3).
+	 * Sen jälkeen vertaa löytyykö (2,2) ja (3,1) sama id.
+	 * Jos löytyy palautetaan true.
+	*/
+	public boolean tarkastaVinoVasenylaOikeaala(){
+		int laskuri = 0;
+		char id = 'e'; // 'e' empty aluksi
+		for (Nappula nappula : nappulat){
+			
+			if (nappula.getX() == 1 && nappula.getY() == 3){
+				id = nappula.getId();
+			}
+		}
+		
+		for (Nappula nappula : nappulat){
+			if ((nappula.getX() == 1 && nappula.getY() == 3 && nappula.getId() == id) || 
+				(nappula.getX() == 2 && nappula.getY() == 2 && nappula.getId() == id) || 
+				(nappula.getX() == 3 && nappula.getY() == 1 && nappula.getId() == id) ){
 				laskuri++;
 			}
 		}
