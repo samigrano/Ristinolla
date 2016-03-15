@@ -14,6 +14,10 @@ import Pelilauta.TicTacToeFrame;
 
 public class Nappula extends JButton implements ActionListener{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	ImageIcon X,O;
 	int value=0;
 	
@@ -71,6 +75,7 @@ public class Nappula extends JButton implements ActionListener{
 			
 			Apu apu13 = new Apu(1,3,u);
 			Pelilauta.lisaaLautaan(apu13);
+			
 		}
 		if(yolo == TicTacToeFrame.ruutu2){
 			char u = this.getId();
