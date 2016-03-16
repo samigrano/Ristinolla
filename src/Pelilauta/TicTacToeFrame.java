@@ -94,7 +94,7 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Object yolo = e.getSource();
+		
 		String name = e.getActionCommand();
 		
 		
@@ -111,37 +111,6 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 			System.out.println("Ohjelma lopetettu");
 			System.exit(0);
 		}
-		
-		
-		//asettaa napille enabled -> false kun painettu. ruma ku mikä.
-		else if(yolo == ruutu1){
-			ruutu1.setEnabled(false);
-		}
-		else if(yolo == ruutu2){
-			ruutu2.setEnabled(false);
-		}
-		else if(yolo == ruutu3){
-			ruutu3.setEnabled(false);
-		}
-		else if(yolo == ruutu4){
-			ruutu4.setEnabled(false);
-		}
-		else if(yolo == ruutu5){
-			ruutu5.setEnabled(false);
-		}
-		else if(yolo == ruutu6){
-			ruutu6.setEnabled(false);
-		}
-		else if(yolo == ruutu7){
-			ruutu7.setEnabled(false);
-		}
-		else if(yolo == ruutu8){
-			ruutu8.setEnabled(false);
-		}
-		else if(yolo == ruutu9){
-			ruutu9.setEnabled(false);
-		}
-		
 		
 	}
 	
