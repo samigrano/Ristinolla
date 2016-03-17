@@ -15,6 +15,10 @@ import Nappula.Nappula;
 
 public class TicTacToeFrame extends JFrame implements ActionListener {
 	
+	static int vuoro = 0;
+	private static final long serialVersionUID = 1L;
+	JPanel p = new JPanel();
+	JButton [] nappula = new Nappula[9];
 	
 	public static JButton ruutu1 = new Nappula();
 	public static JButton ruutu2 = new Nappula();
@@ -26,19 +30,19 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 	public static JButton ruutu8 = new Nappula();
 	public static JButton ruutu9 = new Nappula();
 	
-	
-	static int vuoro = 0;
-	private static final long serialVersionUID = 1L;
-	JPanel p = new JPanel();
-	Nappula [] nappula = new Nappula[9];
-	
 	public TicTacToeFrame(){
 		
-		//Luo uuden kehyksen ja 
+		//Luo uuden kehyksen ja lis‰‰ napit.
+		
 		super("TicTacToe - Sami&Joonas");
-		setSize(600, 600);
+		setSize(300, 300);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		addButton();
+	}
+		//Luo napit.
+	
+	public void addButton(){
 		
 		p.add(ruutu1);
 		p.add(ruutu2);
@@ -87,7 +91,8 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		file.addSeparator();
 		file.add(close);
 		
-		}
+	}
+		
 		/*Nappien vaikutukset valikossa. Tonne pit‰‰ lis‰t‰
 		 * tonne pit‰‰ lis‰t‰ viel‰ toiminnalisuudet newGamelle, savelle ja loadille.
 		 * Exit toimii jo.
@@ -99,8 +104,9 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		
 		
 		if(name.equals("New")){
-			new TicTacToeFrame();
+			
 		}
+			
 		else if(name.equals("Save")){
 			System.out.println("Painoit Save nappia");
 		}
