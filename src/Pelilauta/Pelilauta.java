@@ -17,6 +17,8 @@ public class Pelilauta {
 	
 	static ArrayList<Apu> nappulat = new ArrayList<>();
 	
+	static char voittaja = 'T';
+	
 	//Tulostus kopioitu suoraan shakkiprojektista
 	public static void piirraLauta(){
 		int riviNumero = 3;
@@ -24,7 +26,7 @@ public class Pelilauta {
 			System.out.print(riviNumero + "|");
 			riviNumero--;
 			for (int x = 1; x <= 3; x++){
-				System.out.print(" "+piirraNappula(x ,y)+ " ");
+				System.out.print(" "+haeNappula(x ,y)+ " ");
 			}
 			System.out.println("");
 		}
@@ -36,11 +38,12 @@ public class Pelilauta {
 	
 	public static void lisaaLautaan(Apu uusi){
 		nappulat.add(uusi);
+		
 		piirraLauta();
 	}
 	
 	//Tällä testataan onko jossain koordinaatissa jokin nappula
-	private static char piirraNappula(int x, int y){
+	private static char haeNappula(int x, int y){
 	
 		for (Apu nappula : nappulat){
 			if (nappula.getX() == x && nappula.getY() == y){
@@ -72,35 +75,52 @@ public class Pelilauta {
 		return false;
 	}
 	
+	public static char annaVoittaja(){
+		return voittaja;
+	}
+	
+	public static boolean onkoTasapeli(){
+		if (nappulat.size() == 9) return true;
+		return false;
+	}
+	
 	/*
 	 * Koko laudan tarkistus kerralla. 
 	 * Voi käyttää jokaisen siiron jälkeen tarkistamaan päättyykö peli.
 	 * Kutsuu vaaka- ,pysty- ja vinojen- rivien tarkistusmetodeita. 
 	 * Palauttaa true jos joltain riviltä löytyy kolme samaa nappulaa.
 	*/
-	public boolean tarkastaLauta(){
+	public static boolean tarkastaLauta(){
 		if(tarkastaYlinVaakarivi()){
+			voittaja = haeNappula(1,3);
 			return true;
 		}
 		if(tarkastaKeskimmäinenVaakarivi()){
+			voittaja = haeNappula(1,2);
 			return true;
 		}
 		if(tarkastaAlinVaakarivi()){
+			voittaja = haeNappula(1,1);
 			return true;
 		}
 		if(tarkastaVasenPystyrivi()){
+			voittaja = haeNappula(1,3);
 			return true;
 		}
 		if(tarkastaKeskiPystyrivi()){
+			voittaja = haeNappula(2,3);
 			return true;
 		}
 		if(tarkastaOikeaPystyrivi()){
+			voittaja = haeNappula(3,3);
 			return true;
 		}
 		if(tarkastaVinoVasenalaOikeayla()){
+			voittaja = haeNappula(3,3);
 			return true;
 		}
 		if(tarkastaVinoVasenylaOikeaala()){
+			voittaja = haeNappula(1,1);
 			return true;
 		}
 		
@@ -112,7 +132,7 @@ public class Pelilauta {
 	 * Sen jälkeen vertaa löytyykö (2,3) ja (3,3) sama id.
 	 * Jos löytyy palautetaan true.
 	*/
-	public boolean tarkastaYlinVaakarivi(){
+	public static boolean tarkastaYlinVaakarivi(){
 		int laskuri = 0;
 		char id = 'e'; // 'e' empty aluksi
 		for (Apu nappula : nappulat){
@@ -142,7 +162,7 @@ public class Pelilauta {
 	 * Sen jälkeen vertaa löytyykö (2,1) ja (3,1) sama id.
 	 * Jos löytyy palautetaan true.
 	*/
-	public boolean tarkastaAlinVaakarivi(){
+	public static boolean tarkastaAlinVaakarivi(){
 		int laskuri = 0;
 		char id = 'e';
 		
@@ -171,7 +191,7 @@ public class Pelilauta {
 	 * Sen jälkeen vertaa löytyykö (2,2) ja (3,2) sama id.
 	 * Jos löytyy palautetaan true.
 	*/
-	public boolean tarkastaKeskimmäinenVaakarivi(){
+	public static boolean tarkastaKeskimmäinenVaakarivi(){
 		int laskuri = 0;
 		char id = 'e';
 		
@@ -200,7 +220,7 @@ public class Pelilauta {
 	 * Sen jälkeen vertaa löytyykö (1,2) ja (1,3) sama id.
 	 * Jos löytyy palautetaan true.
 	*/
-	public boolean tarkastaVasenPystyrivi(){
+	public static boolean tarkastaVasenPystyrivi(){
 		int laskuri = 0;
 		char id = 'e'; // 'e' empty aluksi
 		for (Apu nappula : nappulat){
@@ -229,7 +249,7 @@ public class Pelilauta {
 	 * Sen jälkeen vertaa löytyykö (2,2) ja (2,3) sama id.
 	 * Jos löytyy palautetaan true.
 	*/
-	public boolean tarkastaKeskiPystyrivi(){
+	public static boolean tarkastaKeskiPystyrivi(){
 		int laskuri = 0;
 		char id = 'e'; // 'e' empty aluksi
 		for (Apu nappula : nappulat){
@@ -258,7 +278,7 @@ public class Pelilauta {
 	 * Sen jälkeen vertaa löytyykö (3,2) ja (3,3) sama id.
 	 * Jos löytyy palautetaan true.
 	*/
-	public boolean tarkastaOikeaPystyrivi(){
+	public static boolean tarkastaOikeaPystyrivi(){
 		int laskuri = 0;
 		char id = 'e'; // 'e' empty aluksi
 		for (Apu nappula : nappulat){
@@ -287,7 +307,7 @@ public class Pelilauta {
 	 * Sen jälkeen vertaa löytyykö (2,2) ja (3,3) sama id.
 	 * Jos löytyy palautetaan true.
 	*/
-	public boolean tarkastaVinoVasenalaOikeayla(){
+	public static boolean tarkastaVinoVasenalaOikeayla(){
 		int laskuri = 0;
 		char id = 'e'; // 'e' empty aluksi
 		for (Apu nappula : nappulat){
@@ -316,7 +336,7 @@ public class Pelilauta {
 	 * Sen jälkeen vertaa löytyykö (2,2) ja (3,1) sama id.
 	 * Jos löytyy palautetaan true.
 	*/
-	public boolean tarkastaVinoVasenylaOikeaala(){
+	public static boolean tarkastaVinoVasenylaOikeaala(){
 		int laskuri = 0;
 		char id = 'e'; // 'e' empty aluksi
 		for (Apu nappula : nappulat){

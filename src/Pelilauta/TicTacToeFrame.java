@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Nappula.Nappula;
@@ -91,6 +92,9 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		file.addSeparator();
 		file.add(close);
 		
+		
+
+		
 	}
 		
 		/*Nappien vaikutukset valikossa. Tonne pit‰‰ lis‰t‰
@@ -99,6 +103,7 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
+	
 		
 		String name = e.getActionCommand();
 		
@@ -117,6 +122,8 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 			System.out.println("Ohjelma lopetettu");
 			System.exit(0);
 		}
+		
+	
 		
 	}
 	

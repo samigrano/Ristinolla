@@ -2,9 +2,9 @@ package Nappula;
 
 public class Apu {
 
-	int x;
-	int y;
-	char id;
+	private int x;
+	private int y;
+	private char id;
 	
 	
 	public Apu(int x, int y, char id){
