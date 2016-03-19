@@ -1,15 +1,13 @@
 package Pelilauta;
 
+import java.util.ArrayList;
+
 /*
  * Luokka on t‰ll‰ hetkell‰ erroris, kun nappi ei toimi en‰‰ n‰in.
  * Mutta pit‰‰ koittaa kytkee n‰‰ s‰‰nnˆt tohon uuteen grafiikkaan.
  */
 
 import Nappula.Apu;
-import java.util.ArrayList;
-import java.util.Collection;
-
-import Nappula.*;
 public class Pelilauta {
 	
 	
@@ -35,7 +33,11 @@ public class Pelilauta {
 		System.out.println("   1  2  3");
 	
 	}
-	
+	public static void tyhjennaLauta(){
+		for(int i=0; i<nappulat.size(); i++){
+			nappulat.remove(i);
+		}
+	}
 	public static void lisaaLautaan(Apu uusi){
 		nappulat.add(uusi);
 		

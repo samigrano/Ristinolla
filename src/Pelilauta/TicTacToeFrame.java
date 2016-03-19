@@ -4,6 +4,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -11,8 +12,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
+import Pelilauta.Pelilauta;
 import Nappula.Nappula;
+import Nappula.Apu;
 
 public class TicTacToeFrame extends JFrame implements ActionListener {
 	
@@ -39,6 +41,31 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		setSize(300, 300);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		
+		//Tekee menu valikon ja nappeja.
+		JMenuBar bar  = new JMenuBar();
+		JMenu file = new JMenu("File");
+		JMenuItem newFile = new JMenuItem("New");
+		JMenuItem save = new JMenuItem("Save");
+		JMenuItem load = new JMenuItem("Load");
+		JMenuItem close = new JMenuItem("Exit");
+		
+		//Lis‰‰ kuuntelijat valikon nappeihin.
+		newFile.addActionListener(this);
+		save.addActionListener(this);
+		load.addActionListener(this);
+		close.addActionListener(this);
+		
+		//Lis‰‰ napit valikkoon
+		setJMenuBar(bar);
+		bar.add(file);
+		file.add(newFile);
+		file.add(save);
+		file.add(load);
+		file.addSeparator();
+		file.add(close);
+		
 		addButton();
 	}
 		//Luo napit.
@@ -69,34 +96,8 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		
 		add(p);
 		
-		//Tekee menu valikon ja nappeja.
-		JMenuBar bar  = new JMenuBar();
-		JMenu file = new JMenu("File");
-		JMenuItem newFile = new JMenuItem("New");
-		JMenuItem save = new JMenuItem("Save");
-		JMenuItem load = new JMenuItem("Load");
-		JMenuItem close = new JMenuItem("Exit");
-		
-		//Lis‰‰ kuuntelijat valikon nappeihin.
-		newFile.addActionListener(this);
-		save.addActionListener(this);
-		load.addActionListener(this);
-		close.addActionListener(this);
-		
-		//Lis‰‰ napit valikkoon
-		setJMenuBar(bar);
-		bar.add(file);
-		file.add(newFile);
-		file.add(save);
-		file.add(load);
-		file.addSeparator();
-		file.add(close);
-		
-		
-
-		
 	}
-		
+	
 		/*Nappien vaikutukset valikossa. Tonne pit‰‰ lis‰t‰
 		 * tonne pit‰‰ lis‰t‰ viel‰ toiminnalisuudet newGamelle, savelle ja loadille.
 		 * Exit toimii jo.
@@ -109,7 +110,29 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		
 		
 		if(name.equals("New")){
+			Pelilauta.tyhjennaLauta();
+			dispose();
+			ruutu1.setIcon(null);
+			ruutu2.setIcon(null);
+			ruutu3.setIcon(null);
+			ruutu4.setIcon(null);
+			ruutu5.setIcon(null);
+			ruutu6.setIcon(null);
+			ruutu7.setIcon(null);
+			ruutu8.setIcon(null);
+			ruutu9.setIcon(null);
 			
+			new TicTacToeFrame().setVisible(true);
+			ruutu1 = new Nappula();
+			ruutu2 = new Nappula();
+			ruutu3 = new Nappula();
+			ruutu4 = new Nappula();
+			ruutu5 = new Nappula();
+			ruutu6 = new Nappula();
+			ruutu7 = new Nappula();
+			ruutu8 = new Nappula();
+			ruutu9 = new Nappula();
+						
 		}
 			
 		else if(name.equals("Save")){
