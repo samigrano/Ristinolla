@@ -18,7 +18,6 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 	static int vuoro = 0;
 	private static final long serialVersionUID = 1L;
 	JPanel p = new JPanel();
-	JButton [] nappula = new Nappula[9];
 	
 	public static JButton ruutu1 = new Nappula();
 	public static JButton ruutu2 = new Nappula();
@@ -29,6 +28,7 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 	public static JButton ruutu7 = new Nappula();
 	public static JButton ruutu8 = new Nappula();
 	public static JButton ruutu9 = new Nappula();
+	
 	
 	public TicTacToeFrame(){
 		
@@ -68,18 +68,16 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		//Luo napit.
 	
 	public void addButton(){
-		
-		JPanel p = new JPanel();
-		
-		JButton ruutu1 = new Nappula();
-		JButton ruutu2 = new Nappula();
-		JButton ruutu3 = new Nappula();
-		JButton ruutu4 = new Nappula();
-		JButton ruutu5 = new Nappula();
-		JButton ruutu6 = new Nappula();
-		JButton ruutu7 = new Nappula();
-		JButton ruutu8 = new Nappula();
-		JButton ruutu9 = new Nappula();
+
+		ruutu1 = new Nappula();
+		ruutu2 = new Nappula();
+		ruutu3 = new Nappula();
+		ruutu4 = new Nappula();
+		ruutu5 = new Nappula();
+		ruutu6 = new Nappula();
+		ruutu7 = new Nappula();
+		ruutu8 = new Nappula();
+		ruutu9 = new Nappula();
 		
 		p.add(ruutu1);
 		p.add(ruutu2);
@@ -119,9 +117,11 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		
 		
 		if(name.equals("New")){
+			Pelilauta.tyhjennaLauta();
 			dispose();
 			new TicTacToeFrame().setVisible(true);
 			addButton();
+			
 						
 		}
 			
