@@ -68,16 +68,16 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		//Luo napit.
 	
 	public void addButton(){
-		
-//		ruutu1 = new Nappula();
-//		ruutu2 = new Nappula();
-//		ruutu3 = new Nappula();
-//		ruutu4 = new Nappula();
-//		ruutu5 = new Nappula();
-//		ruutu6 = new Nappula();
-//		ruutu7 = new Nappula();
-//		ruutu8 = new Nappula();
-//		ruutu9 = new Nappula();
+
+		ruutu1 = new Nappula();
+		ruutu2 = new Nappula();
+		ruutu3 = new Nappula();
+		ruutu4 = new Nappula();
+		ruutu5 = new Nappula();
+		ruutu6 = new Nappula();
+		ruutu7 = new Nappula();
+		ruutu8 = new Nappula();
+		ruutu9 = new Nappula();
 		
 		p.add(ruutu1);
 		p.add(ruutu2);
@@ -119,9 +119,16 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		if(name.equals("New")){
 			
 			Pelilauta.tyhjennaLauta();
+			
 			dispose();
-			new TicTacToeFrame().setVisible(true);
 			addButton();
+			System.out.println("hep");
+			Pelilauta.piirraLauta();
+			System.out.println("--------------");
+		
+			
+			new TicTacToeFrame().setVisible(true);
+			
 			
 						
 		}
@@ -148,4 +155,6 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 	public static void kasvataVuoro(){
 		vuoro++;
 	}
+	
+	
 }

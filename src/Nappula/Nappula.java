@@ -15,6 +15,8 @@ public class Nappula extends JButton implements ActionListener{
 	int onkoPainettu = 0;
 	char id; // X == 1, O == 0;
 
+	
+	
 	public Nappula(){
 		X = new ImageIcon(getClass().getResource("X.png"));
 		O = new ImageIcon(getClass().getResource("O.png"));
@@ -25,9 +27,20 @@ public class Nappula extends JButton implements ActionListener{
 		this.id = id;
 	}
 	
+	public void setOnkoPainettu(int onkoPainettu){
+		this.onkoPainettu = onkoPainettu;
+	}
+	
 	public char getId(){
 		return id;
 	}
+	
+	public void tyhj‰‰(){
+		 setId(' ');
+		 setOnkoPainettu(0);
+		
+	}
+	
 	
 	
 	// Lis‰‰ toiminnat kun nappeja painaa. value m‰‰r‰‰ kuin monta kertaa on painettu.
@@ -39,6 +52,14 @@ public class Nappula extends JButton implements ActionListener{
 		if (onkoPainettu == 1){
 
 			Object yolo = e.getSource();
+			
+			String name = e.getActionCommand();
+			
+			if(name.equals("New")){
+				tyhj‰‰();
+				Pelilauta.tyhjennaLauta();
+			}
+			
 
 			//kasvatetaan vuoromuuttuja lukua
 			TicTacToeFrame.kasvataVuoro();
