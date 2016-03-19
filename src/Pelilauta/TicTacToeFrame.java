@@ -118,17 +118,19 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		
 		if(name.equals("New")){
 			
-			Pelilauta.tyhjennaLauta();
+			
 			
 			dispose();
+			
+			
+		
+			vuoro = 0;
 			addButton();
+			new TicTacToeFrame().setVisible(true);
+			Pelilauta.tyhjennaLauta();
 			System.out.println("hep");
 			Pelilauta.piirraLauta();
 			System.out.println("--------------");
-		
-			
-			new TicTacToeFrame().setVisible(true);
-			
 			
 						
 		}
@@ -155,6 +157,7 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 	public static void kasvataVuoro(){
 		vuoro++;
 	}
+	
 	
 	
 }

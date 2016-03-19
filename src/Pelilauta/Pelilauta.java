@@ -32,9 +32,8 @@ public class Pelilauta {
 	
 	}
 	public static void tyhjennaLauta(){
-		for(int i=0; i<nappulat.size(); i++){
-			nappulat.remove(i);
-		}
+			nappulat.removeAll(nappulat);
+		
 	}
 	public static void lisaaLautaan(Apu uusi){
 		nappulat.add(uusi);
