@@ -90,6 +90,7 @@ public class Pelilauta {
 	 * Palauttaa true jos joltain riviltä löytyy kolme samaa nappulaa.
 	*/
 	public static boolean tarkastaLauta(){
+
 		if(tarkastaYlinVaakarivi()){
 			voittaja = haeNappula(1,3);
 			return true;

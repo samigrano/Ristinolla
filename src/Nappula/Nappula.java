@@ -6,11 +6,13 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+
 import Pelilauta.Pelilauta;
 import Pelilauta.TicTacToeFrame;
 
 public class Nappula extends JButton implements ActionListener{
-	
+
+	private static final long serialVersionUID = 1L;
 	ImageIcon X,O;
 	int onkoPainettu = 0;
 	char id; // X == 1, O == 0;
@@ -40,7 +42,17 @@ public class Nappula extends JButton implements ActionListener{
 		 setOnkoPainettu(0);
 		
 	}
-	
+	public static void enableNappula(){
+		TicTacToeFrame.ruutu1.setEnabled(false);
+		TicTacToeFrame.ruutu2.setEnabled(false);
+		TicTacToeFrame.ruutu3.setEnabled(false);
+		TicTacToeFrame.ruutu4.setEnabled(false);
+		TicTacToeFrame.ruutu5.setEnabled(false);
+		TicTacToeFrame.ruutu6.setEnabled(false);
+		TicTacToeFrame.ruutu7.setEnabled(false);
+		TicTacToeFrame.ruutu8.setEnabled(false);
+		TicTacToeFrame.ruutu9.setEnabled(false);
+	}
 	
 	
 	// Lis‰‰ toiminnat kun nappeja painaa. value m‰‰r‰‰ kuin monta kertaa on painettu.
@@ -89,29 +101,11 @@ public class Nappula extends JButton implements ActionListener{
 
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
-					TicTacToeFrame.ruutu1.setEnabled(false);
-					TicTacToeFrame.ruutu2.setEnabled(false);
-					TicTacToeFrame.ruutu3.setEnabled(false);
-					TicTacToeFrame.ruutu4.setEnabled(false);
-					TicTacToeFrame.ruutu5.setEnabled(false);
-					TicTacToeFrame.ruutu6.setEnabled(false);
-					TicTacToeFrame.ruutu7.setEnabled(false);
-					TicTacToeFrame.ruutu8.setEnabled(false);
-					TicTacToeFrame.ruutu9.setEnabled(false);
-					
+					enableNappula();
 				}
 				
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.annaVoittaja() == 'T'){
 					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
-					TicTacToeFrame.ruutu1.setEnabled(false);
-					TicTacToeFrame.ruutu2.setEnabled(false);
-					TicTacToeFrame.ruutu3.setEnabled(false);
-					TicTacToeFrame.ruutu4.setEnabled(false);
-					TicTacToeFrame.ruutu5.setEnabled(false);
-					TicTacToeFrame.ruutu6.setEnabled(false);
-					TicTacToeFrame.ruutu7.setEnabled(false);
-					TicTacToeFrame.ruutu8.setEnabled(false);
-					TicTacToeFrame.ruutu9.setEnabled(false);
 				}
 				
 				
@@ -126,30 +120,13 @@ public class Nappula extends JButton implements ActionListener{
 
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
-					TicTacToeFrame.ruutu1.setEnabled(false);
-					TicTacToeFrame.ruutu2.setEnabled(false);
-					TicTacToeFrame.ruutu3.setEnabled(false);
-					TicTacToeFrame.ruutu4.setEnabled(false);
-					TicTacToeFrame.ruutu5.setEnabled(false);
-					TicTacToeFrame.ruutu6.setEnabled(false);
-					TicTacToeFrame.ruutu7.setEnabled(false);
-					TicTacToeFrame.ruutu8.setEnabled(false);
-					TicTacToeFrame.ruutu9.setEnabled(false);
+					enableNappula();
 					
 				}
 				
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.annaVoittaja() == 'T'){
 					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
-					TicTacToeFrame.ruutu1.setEnabled(false);
-					TicTacToeFrame.ruutu2.setEnabled(false);
-					TicTacToeFrame.ruutu3.setEnabled(false);
-					TicTacToeFrame.ruutu4.setEnabled(false);
-					TicTacToeFrame.ruutu5.setEnabled(false);
-					TicTacToeFrame.ruutu6.setEnabled(false);
-					TicTacToeFrame.ruutu7.setEnabled(false);
-					TicTacToeFrame.ruutu8.setEnabled(false);
-					TicTacToeFrame.ruutu9.setEnabled(false);
-					
+
 				}
 				
 				
@@ -163,29 +140,12 @@ public class Nappula extends JButton implements ActionListener{
 				
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
-					TicTacToeFrame.ruutu1.setEnabled(false);
-					TicTacToeFrame.ruutu2.setEnabled(false);
-					TicTacToeFrame.ruutu3.setEnabled(false);
-					TicTacToeFrame.ruutu4.setEnabled(false);
-					TicTacToeFrame.ruutu5.setEnabled(false);
-					TicTacToeFrame.ruutu6.setEnabled(false);
-					TicTacToeFrame.ruutu7.setEnabled(false);
-					TicTacToeFrame.ruutu8.setEnabled(false);
-					TicTacToeFrame.ruutu9.setEnabled(false);
+					enableNappula();
 					
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.annaVoittaja() == 'T'){
 					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
-					TicTacToeFrame.ruutu1.setEnabled(false);
-					TicTacToeFrame.ruutu2.setEnabled(false);
-					TicTacToeFrame.ruutu3.setEnabled(false);
-					TicTacToeFrame.ruutu4.setEnabled(false);
-					TicTacToeFrame.ruutu5.setEnabled(false);
-					TicTacToeFrame.ruutu6.setEnabled(false);
-					TicTacToeFrame.ruutu7.setEnabled(false);
-					TicTacToeFrame.ruutu8.setEnabled(false);
-					TicTacToeFrame.ruutu9.setEnabled(false);
-					
+
 				}
 			
 			}
@@ -198,29 +158,12 @@ public class Nappula extends JButton implements ActionListener{
 
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
-					TicTacToeFrame.ruutu1.setEnabled(false);
-					TicTacToeFrame.ruutu2.setEnabled(false);
-					TicTacToeFrame.ruutu3.setEnabled(false);
-					TicTacToeFrame.ruutu4.setEnabled(false);
-					TicTacToeFrame.ruutu5.setEnabled(false);
-					TicTacToeFrame.ruutu6.setEnabled(false);
-					TicTacToeFrame.ruutu7.setEnabled(false);
-					TicTacToeFrame.ruutu8.setEnabled(false);
-					TicTacToeFrame.ruutu9.setEnabled(false);
+					enableNappula();
 					
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.annaVoittaja() == 'T'){
 					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
-					TicTacToeFrame.ruutu1.setEnabled(false);
-					TicTacToeFrame.ruutu2.setEnabled(false);
-					TicTacToeFrame.ruutu3.setEnabled(false);
-					TicTacToeFrame.ruutu4.setEnabled(false);
-					TicTacToeFrame.ruutu5.setEnabled(false);
-					TicTacToeFrame.ruutu6.setEnabled(false);
-					TicTacToeFrame.ruutu7.setEnabled(false);
-					TicTacToeFrame.ruutu8.setEnabled(false);
-					TicTacToeFrame.ruutu9.setEnabled(false);
-					
+
 				}
 				
 			}
@@ -234,29 +177,11 @@ public class Nappula extends JButton implements ActionListener{
 
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
-					TicTacToeFrame.ruutu1.setEnabled(false);
-					TicTacToeFrame.ruutu2.setEnabled(false);
-					TicTacToeFrame.ruutu3.setEnabled(false);
-					TicTacToeFrame.ruutu4.setEnabled(false);
-					TicTacToeFrame.ruutu5.setEnabled(false);
-					TicTacToeFrame.ruutu6.setEnabled(false);
-					TicTacToeFrame.ruutu7.setEnabled(false);
-					TicTacToeFrame.ruutu8.setEnabled(false);
-					TicTacToeFrame.ruutu9.setEnabled(false);
-					
+					enableNappula();
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.annaVoittaja() == 'T'){
 					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
-					TicTacToeFrame.ruutu1.setEnabled(false);
-					TicTacToeFrame.ruutu2.setEnabled(false);
-					TicTacToeFrame.ruutu3.setEnabled(false);
-					TicTacToeFrame.ruutu4.setEnabled(false);
-					TicTacToeFrame.ruutu5.setEnabled(false);
-					TicTacToeFrame.ruutu6.setEnabled(false);
-					TicTacToeFrame.ruutu7.setEnabled(false);
-					TicTacToeFrame.ruutu8.setEnabled(false);
-					TicTacToeFrame.ruutu9.setEnabled(false);
-					
+
 				}
 				
 			}
@@ -269,29 +194,12 @@ public class Nappula extends JButton implements ActionListener{
 
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
-					TicTacToeFrame.ruutu1.setEnabled(false);
-					TicTacToeFrame.ruutu2.setEnabled(false);
-					TicTacToeFrame.ruutu3.setEnabled(false);
-					TicTacToeFrame.ruutu4.setEnabled(false);
-					TicTacToeFrame.ruutu5.setEnabled(false);
-					TicTacToeFrame.ruutu6.setEnabled(false);
-					TicTacToeFrame.ruutu7.setEnabled(false);
-					TicTacToeFrame.ruutu8.setEnabled(false);
-					TicTacToeFrame.ruutu9.setEnabled(false);
+					enableNappula();
 					
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.annaVoittaja() == 'T'){
 					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
-					TicTacToeFrame.ruutu1.setEnabled(false);
-					TicTacToeFrame.ruutu2.setEnabled(false);
-					TicTacToeFrame.ruutu3.setEnabled(false);
-					TicTacToeFrame.ruutu4.setEnabled(false);
-					TicTacToeFrame.ruutu5.setEnabled(false);
-					TicTacToeFrame.ruutu6.setEnabled(false);
-					TicTacToeFrame.ruutu7.setEnabled(false);
-					TicTacToeFrame.ruutu8.setEnabled(false);
-					TicTacToeFrame.ruutu9.setEnabled(false);
-					
+
 				}
 				
 			}
@@ -304,29 +212,12 @@ public class Nappula extends JButton implements ActionListener{
 
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
-					TicTacToeFrame.ruutu1.setEnabled(false);
-					TicTacToeFrame.ruutu2.setEnabled(false);
-					TicTacToeFrame.ruutu3.setEnabled(false);
-					TicTacToeFrame.ruutu4.setEnabled(false);
-					TicTacToeFrame.ruutu5.setEnabled(false);
-					TicTacToeFrame.ruutu6.setEnabled(false);
-					TicTacToeFrame.ruutu7.setEnabled(false);
-					TicTacToeFrame.ruutu8.setEnabled(false);
-					TicTacToeFrame.ruutu9.setEnabled(false);
+					enableNappula();
 					
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.annaVoittaja() == 'T'){
 					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
-					TicTacToeFrame.ruutu1.setEnabled(false);
-					TicTacToeFrame.ruutu2.setEnabled(false);
-					TicTacToeFrame.ruutu3.setEnabled(false);
-					TicTacToeFrame.ruutu4.setEnabled(false);
-					TicTacToeFrame.ruutu5.setEnabled(false);
-					TicTacToeFrame.ruutu6.setEnabled(false);
-					TicTacToeFrame.ruutu7.setEnabled(false);
-					TicTacToeFrame.ruutu8.setEnabled(false);
-					TicTacToeFrame.ruutu9.setEnabled(false);
-					
+
 				}
 				
 			}
@@ -339,29 +230,12 @@ public class Nappula extends JButton implements ActionListener{
 
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
-					TicTacToeFrame.ruutu1.setEnabled(false);
-					TicTacToeFrame.ruutu2.setEnabled(false);
-					TicTacToeFrame.ruutu3.setEnabled(false);
-					TicTacToeFrame.ruutu4.setEnabled(false);
-					TicTacToeFrame.ruutu5.setEnabled(false);
-					TicTacToeFrame.ruutu6.setEnabled(false);
-					TicTacToeFrame.ruutu7.setEnabled(false);
-					TicTacToeFrame.ruutu8.setEnabled(false);
-					TicTacToeFrame.ruutu9.setEnabled(false);
+					enableNappula();
 					
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.annaVoittaja() == 'T'){
 					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
-					TicTacToeFrame.ruutu1.setEnabled(false);
-					TicTacToeFrame.ruutu2.setEnabled(false);
-					TicTacToeFrame.ruutu3.setEnabled(false);
-					TicTacToeFrame.ruutu4.setEnabled(false);
-					TicTacToeFrame.ruutu5.setEnabled(false);
-					TicTacToeFrame.ruutu6.setEnabled(false);
-					TicTacToeFrame.ruutu7.setEnabled(false);
-					TicTacToeFrame.ruutu8.setEnabled(false);
-					TicTacToeFrame.ruutu9.setEnabled(false);
-					
+
 				}
 				
 			}
@@ -374,29 +248,12 @@ public class Nappula extends JButton implements ActionListener{
 
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
-					TicTacToeFrame.ruutu1.setEnabled(false);
-					TicTacToeFrame.ruutu2.setEnabled(false);
-					TicTacToeFrame.ruutu3.setEnabled(false);
-					TicTacToeFrame.ruutu4.setEnabled(false);
-					TicTacToeFrame.ruutu5.setEnabled(false);
-					TicTacToeFrame.ruutu6.setEnabled(false);
-					TicTacToeFrame.ruutu7.setEnabled(false);
-					TicTacToeFrame.ruutu8.setEnabled(false);
-					TicTacToeFrame.ruutu9.setEnabled(false);
+					enableNappula();
 					
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.annaVoittaja() == 'T'){
 					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
-					TicTacToeFrame.ruutu1.setEnabled(false);
-					TicTacToeFrame.ruutu2.setEnabled(false);
-					TicTacToeFrame.ruutu3.setEnabled(false);
-					TicTacToeFrame.ruutu4.setEnabled(false);
-					TicTacToeFrame.ruutu5.setEnabled(false);
-					TicTacToeFrame.ruutu6.setEnabled(false);
-					TicTacToeFrame.ruutu7.setEnabled(false);
-					TicTacToeFrame.ruutu8.setEnabled(false);
-					TicTacToeFrame.ruutu9.setEnabled(false);
-					
+
 				}
 				
 			}
