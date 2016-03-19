@@ -122,7 +122,7 @@ public class Pelilauta {
 			return true;
 		}
 		if(tarkastaVinoVasenylaOikeaala()){
-			voittaja = haeNappula(1,1);
+			voittaja = haeNappula(1,3);
 			return true;
 		}
 		
