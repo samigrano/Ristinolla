@@ -11,8 +11,6 @@ import Nappula.Apu;
 public class Pelilauta {
 	
 	
-	private Apu apu;
-	
 	static ArrayList<Apu> nappulat = new ArrayList<>();
 	
 	static char voittaja = 'T';
