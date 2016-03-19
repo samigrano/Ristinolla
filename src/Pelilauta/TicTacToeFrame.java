@@ -4,17 +4,14 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import Pelilauta.Pelilauta;
+
 import Nappula.Nappula;
-import Nappula.Apu;
 
 public class TicTacToeFrame extends JFrame implements ActionListener {
 	
@@ -72,6 +69,18 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 	
 	public void addButton(){
 		
+		JPanel p = new JPanel();
+		
+		JButton ruutu1 = new Nappula();
+		JButton ruutu2 = new Nappula();
+		JButton ruutu3 = new Nappula();
+		JButton ruutu4 = new Nappula();
+		JButton ruutu5 = new Nappula();
+		JButton ruutu6 = new Nappula();
+		JButton ruutu7 = new Nappula();
+		JButton ruutu8 = new Nappula();
+		JButton ruutu9 = new Nappula();
+		
 		p.add(ruutu1);
 		p.add(ruutu2);
 		p.add(ruutu3);
@@ -110,28 +119,9 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		
 		
 		if(name.equals("New")){
-			Pelilauta.tyhjennaLauta();
 			dispose();
-			ruutu1.setIcon(null);
-			ruutu2.setIcon(null);
-			ruutu3.setIcon(null);
-			ruutu4.setIcon(null);
-			ruutu5.setIcon(null);
-			ruutu6.setIcon(null);
-			ruutu7.setIcon(null);
-			ruutu8.setIcon(null);
-			ruutu9.setIcon(null);
-			
 			new TicTacToeFrame().setVisible(true);
-			ruutu1 = new Nappula();
-			ruutu2 = new Nappula();
-			ruutu3 = new Nappula();
-			ruutu4 = new Nappula();
-			ruutu5 = new Nappula();
-			ruutu6 = new Nappula();
-			ruutu7 = new Nappula();
-			ruutu8 = new Nappula();
-			ruutu9 = new Nappula();
+			addButton();
 						
 		}
 			

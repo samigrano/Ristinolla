@@ -2,15 +2,12 @@ package Nappula;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Collection;
-
-import Nappula.Apu;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
-import Pelilauta.*;
+import Pelilauta.Pelilauta;
 import Pelilauta.TicTacToeFrame;
 
 public class Nappula extends JButton implements ActionListener{
