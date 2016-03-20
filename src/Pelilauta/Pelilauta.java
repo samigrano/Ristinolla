@@ -79,7 +79,9 @@ public class Pelilauta {
 	}
 	
 	public static boolean onkoTasapeli(){
-		if (nappulat.size() == 9) return true;
+		if (nappulat.size() == 9){
+			return true;
+		} 
 		return false;
 	}
 	

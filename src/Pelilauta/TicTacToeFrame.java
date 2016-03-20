@@ -105,10 +105,6 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		
 	}
 	
-		/*Nappien vaikutukset valikossa. Tonne pit‰‰ lis‰t‰
-		 * tonne pit‰‰ lis‰t‰ viel‰ toiminnalisuudet newGamelle, savelle ja loadille.
-		 * Exit toimii jo.
-		 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 	
@@ -120,7 +116,6 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 			
 			dispose();
 			vuoro = 0;
-			addButton();
 			new TicTacToeFrame().setVisible(true);
 			Pelilauta.tyhjennaLauta();
 						
