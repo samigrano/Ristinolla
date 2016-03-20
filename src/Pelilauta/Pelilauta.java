@@ -14,6 +14,8 @@ public class Pelilauta {
 	static ArrayList<Apu> nappulat = new ArrayList<>();
 	
 	static char voittaja = 'T';
+	static int voittajaX = 0;
+	static int voittajaO = 0;
 	
 	//Tulostus kopioitu suoraan shakkiprojektista
 	public static void piirraLauta(){
@@ -30,6 +32,19 @@ public class Pelilauta {
 		System.out.println("  ---------");
 		System.out.println("   1  2  3");
 	
+	}
+	public static void voittajanPisteet(){
+		if(Pelilauta.annaVoittaja() == 'X')
+		{voittajaX++;}
+		
+		if(Pelilauta.annaVoittaja() == 'O')
+		{voittajaO++;}
+	}
+	public static int getVoittajaX(){
+		return voittajaX;
+	}
+	public static int getVoittajaO(){
+		return voittajaO;
 	}
 	public static void tyhjennaLauta(){
 			nappulat.removeAll(nappulat);

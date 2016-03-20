@@ -22,7 +22,6 @@ public class Nappula extends JButton implements ActionListener{
 		O = new ImageIcon(getClass().getResource("O.png"));
 		this.addActionListener(this);
 	}
-	
 	public void setId(char id){
 		this.id = id;
 	}
@@ -40,6 +39,7 @@ public class Nappula extends JButton implements ActionListener{
 		 setOnkoPainettu(0);
 		
 	}
+	
 	public static void enableNappula(){
 		TicTacToeFrame.ruutu1.setEnabled(false);
 		TicTacToeFrame.ruutu2.setEnabled(false);
@@ -92,6 +92,10 @@ public class Nappula extends JButton implements ActionListener{
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
 					enableNappula();
+					Pelilauta.voittajanPisteet();
+					System.out.println(Pelilauta.getVoittajaX());
+					System.out.println(Pelilauta.getVoittajaO());
+					
 				}
 				
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
@@ -110,6 +114,9 @@ public class Nappula extends JButton implements ActionListener{
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
 					enableNappula();
+					Pelilauta.voittajanPisteet();
+					System.out.println(Pelilauta.getVoittajaX());
+					System.out.println(Pelilauta.getVoittajaO());
 					
 				}
 				
@@ -130,6 +137,9 @@ public class Nappula extends JButton implements ActionListener{
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
 					enableNappula();
+					Pelilauta.voittajanPisteet();
+					System.out.println(Pelilauta.getVoittajaX());
+					System.out.println(Pelilauta.getVoittajaO());
 					
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
@@ -149,6 +159,9 @@ public class Nappula extends JButton implements ActionListener{
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
 					enableNappula();
+					Pelilauta.voittajanPisteet();
+					System.out.println(Pelilauta.getVoittajaX());
+					System.out.println(Pelilauta.getVoittajaO());
 					
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
@@ -169,6 +182,10 @@ public class Nappula extends JButton implements ActionListener{
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
 					enableNappula();
+					Pelilauta.voittajanPisteet();
+					System.out.println(Pelilauta.getVoittajaX());
+					System.out.println(Pelilauta.getVoittajaO());
+					
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
 					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
@@ -187,6 +204,9 @@ public class Nappula extends JButton implements ActionListener{
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
 					enableNappula();
+					Pelilauta.voittajanPisteet();
+					System.out.println(Pelilauta.getVoittajaX());
+					System.out.println(Pelilauta.getVoittajaO());
 					
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
@@ -206,6 +226,9 @@ public class Nappula extends JButton implements ActionListener{
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
 					enableNappula();
+					Pelilauta.voittajanPisteet();
+					System.out.println(Pelilauta.getVoittajaX());
+					System.out.println(Pelilauta.getVoittajaO());
 					
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
@@ -225,6 +248,9 @@ public class Nappula extends JButton implements ActionListener{
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
 					enableNappula();
+					Pelilauta.voittajanPisteet();
+					System.out.println(Pelilauta.getVoittajaX());
+					System.out.println(Pelilauta.getVoittajaO());
 					
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
@@ -244,6 +270,9 @@ public class Nappula extends JButton implements ActionListener{
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
 					enableNappula();
+					Pelilauta.voittajanPisteet();
+					System.out.println(Pelilauta.getVoittajaX());
+					System.out.println(Pelilauta.getVoittajaO());
 					
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
