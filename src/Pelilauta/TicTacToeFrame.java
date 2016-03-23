@@ -37,6 +37,7 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		super("TicTacToe - Sami&Joonas");
 		setSize(300, 300);
 		setResizable(false);
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		
