@@ -11,7 +11,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import Nappula.Nappula;
+import Nappula.Pelaaja;
+
 
 public class TicTacToeFrame extends JFrame implements ActionListener {
 	
@@ -19,15 +20,15 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	JPanel p = new JPanel();
 	
-	public static JButton ruutu1 = new Nappula();
-	public static JButton ruutu2 = new Nappula();
-	public static JButton ruutu3 = new Nappula();
-	public static JButton ruutu4 = new Nappula();
-	public static JButton ruutu5 = new Nappula();
-	public static JButton ruutu6 = new Nappula();
-	public static JButton ruutu7 = new Nappula();
-	public static JButton ruutu8 = new Nappula();
-	public static JButton ruutu9 = new Nappula();
+	public static JButton ruutu1 = new Pelaaja();
+	public static JButton ruutu2 = new Pelaaja();
+	public static JButton ruutu3 = new Pelaaja();
+	public static JButton ruutu4 = new Pelaaja();
+	public static JButton ruutu5 = new Pelaaja();
+	public static JButton ruutu6 = new Pelaaja();
+	public static JButton ruutu7 = new Pelaaja();
+	public static JButton ruutu8 = new Pelaaja();
+	public static JButton ruutu9 = new Pelaaja();
 	
 	
 	public TicTacToeFrame(){
@@ -64,21 +65,21 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		file.addSeparator();
 		file.add(close);
 		
-		addButton();
+		lisaaNappula();
 	}
 		//Luo napit.
 	
-	public void addButton(){
+	public void lisaaNappula(){
 
-		ruutu1 = new Nappula();
-		ruutu2 = new Nappula();
-		ruutu3 = new Nappula();
-		ruutu4 = new Nappula();
-		ruutu5 = new Nappula();
-		ruutu6 = new Nappula();
-		ruutu7 = new Nappula();
-		ruutu8 = new Nappula();
-		ruutu9 = new Nappula();
+		ruutu1 = new Pelaaja();
+		ruutu2 = new Pelaaja();
+		ruutu3 = new Pelaaja();
+		ruutu4 = new Pelaaja();
+		ruutu5 = new Pelaaja();
+		ruutu6 = new Pelaaja();
+		ruutu7 = new Pelaaja();
+		ruutu8 = new Pelaaja();
+		ruutu9 = new Pelaaja();
 		
 		p.add(ruutu1);
 		p.add(ruutu2);

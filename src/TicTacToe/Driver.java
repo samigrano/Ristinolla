@@ -1,4 +1,5 @@
 package TicTacToe;
+import Nappula.Tietokone;
 import Pelilauta.TicTacToeFrame;
 public class Driver extends TicTacToeFrame{
 
@@ -6,7 +7,9 @@ public class Driver extends TicTacToeFrame{
 
 	public static void main(String [] args){
 		
-		new TicTacToeFrame().setVisible(true);
+		//new TicTacToeFrame().setVisible(true);
+		// Testausta varten
+		Tietokone.moi();
 	}
 }
 
