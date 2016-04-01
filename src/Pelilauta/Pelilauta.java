@@ -1,5 +1,11 @@
 package Pelilauta;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /*
@@ -8,14 +14,15 @@ import java.util.ArrayList;
  */
 
 import Nappula.Nappula;
-public class Pelilauta {
+public class Pelilauta implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	
 	
 	static ArrayList<Nappula> nappulat = new ArrayList<>();
 	
 	static char voittaja = 'T';
-	static int voittajaX = 0;
-	static int voittajaO = 0;
+	static int[] taulukko = new int[2]; //Taulukko indeksi 0 = x, 1= O;
 	
 	//Tulostus kopioitu suoraan shakkiprojektista
 	public static void piirraLauta(){
@@ -35,16 +42,16 @@ public class Pelilauta {
 	}
 	public static void voittajanPisteet(){
 		if(Pelilauta.annaVoittaja() == 'X')
-		{voittajaX++;}
+		{taulukko[0]++;}
 		
 		if(Pelilauta.annaVoittaja() == 'O')
-		{voittajaO++;}
+		{taulukko[1]++;}
 	}
 	public static int getVoittajaX(){
-		return voittajaX;
+		return taulukko[0];
 	}
 	public static int getVoittajaO(){
-		return voittajaO;
+		return taulukko[1];
 	}
 	public static void tyhjennaLauta(){
 			nappulat.removeAll(nappulat);
@@ -377,5 +384,56 @@ public class Pelilauta {
 		
 		return false;
 	}
-
+	public static void save(){
+		saveGame(taulukko);
+	}
+	public static void load(){
+		taulukko = loadGame();
+	}
+	/**
+	 * Method uses a serializable interface to save the pieces from the ArrayList to file.
+	 * Method has an IOException.
+	 * @param object
+	 */
+	public static void saveGame(int [] taulukko) {
+	
+		try {
+			FileOutputStream fos = new FileOutputStream("Test.ser");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(taulukko);
+			oos.flush();
+			oos.close();
+			fos.close();
+			System.out.println("Chessboard is saved in Test.ser");
+		}
+		catch (IOException ioe) {
+			ioe.printStackTrace();
+		}
+	}
+	/**
+	 * Method uses a serializable interface to load the pieces from the file.
+	 * Method has an IOException and a ClassNotFoundException. 
+	 * @return object
+	 */
+	public static int[] loadGame() {
+		int[] taulukko = new int[2];
+		try {
+			FileInputStream fis = new FileInputStream("Test.ser");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			taulukko = (int[]) ois.readObject();
+			ois.close();
+			fis.close();
+			return taulukko;
+		}
+		catch (IOException i) {
+			i.printStackTrace();
+			return null;
+		}
+		catch (ClassNotFoundException c) {
+			System.out.println("Class not found");
+			c.printStackTrace();
+			return null;
+		}
+	}	
 }
+

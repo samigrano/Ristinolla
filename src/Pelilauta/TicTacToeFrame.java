@@ -124,9 +124,11 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		}
 			
 		else if(name.equals("Save")){
+			Pelilauta.save();
 			System.out.println("Painoit Save nappia");
 		}
 		else if(name.equals("Load")){
+			Pelilauta.load();
 			System.out.println("Painoit Load nappia");
 		}
 		else if(name.equals("Exit")){
