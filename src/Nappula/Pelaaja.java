@@ -99,6 +99,7 @@ public class Pelaaja extends JButton implements ActionListener{
 				
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
 					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
 					enableNappula();
 				}
 				
@@ -122,6 +123,7 @@ public class Pelaaja extends JButton implements ActionListener{
 				
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
 					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
 					enableNappula();
 
 				}
@@ -146,6 +148,7 @@ public class Pelaaja extends JButton implements ActionListener{
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
 					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
 					enableNappula();
 
 				}
@@ -170,6 +173,7 @@ public class Pelaaja extends JButton implements ActionListener{
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
 					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
 					enableNappula();
 
 				}
@@ -195,6 +199,7 @@ public class Pelaaja extends JButton implements ActionListener{
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
 					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
 					enableNappula();
 
 				}
@@ -219,6 +224,7 @@ public class Pelaaja extends JButton implements ActionListener{
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
 					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
 					enableNappula();
 
 				}
@@ -243,6 +249,7 @@ public class Pelaaja extends JButton implements ActionListener{
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
 					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
 					enableNappula();
 
 				}
@@ -267,6 +274,7 @@ public class Pelaaja extends JButton implements ActionListener{
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
 					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
 					enableNappula();
 
 				}
@@ -291,6 +299,7 @@ public class Pelaaja extends JButton implements ActionListener{
 				}
 				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
 					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
 					enableNappula();
 
 				}
