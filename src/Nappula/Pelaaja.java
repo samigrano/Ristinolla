@@ -26,8 +26,8 @@ public class Pelaaja extends JButton implements ActionListener{
 		this.id = id;
 	}
 	
-	public void setOnkoPainettu(int onkoPainettu){
-		this.onkoPainettu = onkoPainettu;
+	public static void setOnkoPainettu(int onkoPainettu){
+		Pelaaja.onkoPainettu = onkoPainettu;
 	}
 	
 	public char getId(){
@@ -41,6 +41,7 @@ public class Pelaaja extends JButton implements ActionListener{
 	}
 	
 	public static void enableNappula(){
+		setOnkoPainettu(0);
 		TicTacToeFrame.ruutu1.setEnabled(false);
 		TicTacToeFrame.ruutu2.setEnabled(false);
 		TicTacToeFrame.ruutu3.setEnabled(false);
@@ -323,6 +324,7 @@ public class Pelaaja extends JButton implements ActionListener{
 		
 		else{
 			onkoPainettu++;
+			TicTacToeFrame.kasvataVuoro();
 			System.out.println("peli ohi");
 		}
 	}
