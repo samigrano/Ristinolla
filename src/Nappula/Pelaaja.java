@@ -14,7 +14,7 @@ public class Pelaaja extends JButton implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 	ImageIcon X,O;
-	int onkoPainettu = 0;
+	static int onkoPainettu = 0;
 	char id; // X == 1, O == 0;
 
 	public Pelaaja(){
@@ -55,9 +55,10 @@ public class Pelaaja extends JButton implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		onkoPainettu++;
+		System.out.println(onkoPainettu);
 
-		if (onkoPainettu == 1){
+		if (onkoPainettu  % 2 == 0){
+			
 
 			Object nappi = e.getSource();
 			
@@ -65,19 +66,23 @@ public class Pelaaja extends JButton implements ActionListener{
 			TicTacToeFrame.kasvataVuoro();
 
 			//vuorotellaan X ja O
-			if(TicTacToeFrame.getVuoro()%2 == 0){
-				this.setId('O');
-				setIcon(O);
-			}
 			if(TicTacToeFrame.getVuoro()%2 == 1){
 				this.setId('X');
 				setIcon(X);
+				
+			}
+			if(TicTacToeFrame.getVuoro()%2 == 0){
+				this.setId('O');
+				setIcon(O);
+				
 			}
 
 			//jokaiselle mahdollislle eri sourcelle oma tapaus
 			//ruutu 1 vastaa koordinaattia (1,3)
 			//ruutu 9 vastaa koordinaattia (3,1)
-			//apuluokka tekee aina uuden olion kun nappia painettu ja tallentaa sen tiedot pelilautaluokkaan
+			//Nappulaluokka tekee aina uuden olion kun nappia painettu ja 
+			//tallentaa sen tiedot pelilautaluokkaan
+			
 			if(nappi == TicTacToeFrame.ruutu1){
 				
 				char u = this.getId();
@@ -85,6 +90,7 @@ public class Pelaaja extends JButton implements ActionListener{
 
 				Nappula apu13 = new Nappula(1,3,u);
 				Pelilauta.lisaaLautaan(apu13);
+				onkoPainettu++;
 				
 
 				if(Pelilauta.tarkastaLauta() == true){
@@ -110,6 +116,7 @@ public class Pelaaja extends JButton implements ActionListener{
 
 				Nappula apu23 = new Nappula(2,3,u);
 				Pelilauta.lisaaLautaan(apu23);
+				onkoPainettu++;
 
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
@@ -135,6 +142,7 @@ public class Pelaaja extends JButton implements ActionListener{
 
 				Nappula apu33 = new Nappula(3,3,u);
 				Pelilauta.lisaaLautaan(apu33);
+				onkoPainettu++;
 				
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
@@ -160,7 +168,8 @@ public class Pelaaja extends JButton implements ActionListener{
 
 				Nappula apu12 = new Nappula(1,2,u);
 				Pelilauta.lisaaLautaan(apu12);
-
+				onkoPainettu++;
+				
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
 					Pelilauta.voittajanPisteet();
@@ -186,7 +195,8 @@ public class Pelaaja extends JButton implements ActionListener{
 				Nappula apu22 = new Nappula(2,2,u);
 				Pelilauta.lisaaLautaan(apu22);
 				Pelilauta.tarkastaLauta();
-
+				onkoPainettu++;
+				
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
 					Pelilauta.voittajanPisteet();
@@ -211,7 +221,8 @@ public class Pelaaja extends JButton implements ActionListener{
 
 				Nappula apu32 = new Nappula(3,2,u);
 				Pelilauta.lisaaLautaan(apu32);
-
+				onkoPainettu++;
+				
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
 					Pelilauta.voittajanPisteet();
@@ -236,7 +247,8 @@ public class Pelaaja extends JButton implements ActionListener{
 
 				Nappula apu11 = new Nappula(1,1,u);
 				Pelilauta.lisaaLautaan(apu11);
-
+				onkoPainettu++;
+				
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
 					Pelilauta.voittajanPisteet();
@@ -261,7 +273,8 @@ public class Pelaaja extends JButton implements ActionListener{
 
 				Nappula apu21 = new Nappula(2,1,u);
 				Pelilauta.lisaaLautaan(apu21);
-
+				onkoPainettu++;
+				
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
 					Pelilauta.voittajanPisteet();
@@ -286,7 +299,8 @@ public class Pelaaja extends JButton implements ActionListener{
 
 				Nappula apu31 = new Nappula(3,1,u);
 				Pelilauta.lisaaLautaan(apu31);
-
+				onkoPainettu++;
+				
 				if(Pelilauta.tarkastaLauta() == true){
 					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
 					Pelilauta.voittajanPisteet();
@@ -305,6 +319,11 @@ public class Pelaaja extends JButton implements ActionListener{
 				}
 				
 			}
+		}
+		
+		else{
+			onkoPainettu++;
+			System.out.println("peli ohi");
 		}
 	}
 
