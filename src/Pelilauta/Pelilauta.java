@@ -14,12 +14,13 @@ import java.util.ArrayList;
  */
 
 import Nappula.Nappula;
+import Nappula.Tietokone;
 public class Pelilauta implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	
-	static ArrayList<Nappula> nappulat = new ArrayList<>();
+	public static ArrayList<Nappula> nappulat = new ArrayList<>();
 	
 	static char voittaja = 'T';
 	static int[] taulukko = new int[2]; //Taulukko indeksi 0 = x, 1= O;
@@ -55,11 +56,14 @@ public class Pelilauta implements Serializable {
 	}
 	public static void tyhjennaLauta(){
 			nappulat.removeAll(nappulat);
+			Tietokone.tyhjennaSiirtoLista();
 		
 	}
 	public static void lisaaLautaan(Nappula uusi){
 		nappulat.add(uusi);
-		
+		Tietokone.lisaaSiirtoListaan();
+		Tietokone.laske();
+		Tietokone.testArvot();
 		piirraLauta();
 	}
 	

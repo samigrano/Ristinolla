@@ -2,70 +2,100 @@ package Nappula;
 
 import java.util.ArrayList;
 
-public class Tietokone {
+import Pelilauta.*;
+import Nappula.*;
+
+public class Tietokone{
 	
-	// jos tekis laudan tarkistuksen jolla k‰yd‰‰n lista l‰pi miss‰ on id x ja sit
-	// sen mukaan laitettais looppi mihin o:n kannattaa laittaa??
-	// Numero meinaa kuinka monta suoraa O:lla on mahdollisuus kyseisest‰ paikasta muodostaa.
-	// N‰‰ voisi tietysti laittaa suoraan pelilauta tai pelaaja luokkaan.
-	// X aloitus.
-	public static void ruutu(ArrayList<Nappula> nappulat){
-		//t‰h‰n pakko olla joku j‰rkev‰mpi keino.. noit vaihtoehtoi tulee ihan sairaast ja jos lauta suurenee ni sit viel lis‰‰..
-		for(int i=0; i<nappulat.size(); i++){
-			for(int j=0; j<nappulat.size(); j++){
-				for(int k=0; k<nappulat.size(); k++){
-					if(nappulat.get(i).getX() == 1 && nappulat.get(i).getY() == 3 && nappulat.get(i).getId() == 'x');{
-						if(nappulat.get(j).getX() == 2 && nappulat.get(j).getY() == 3 && nappulat.get(j).getId() == 'x'){
-							if(nappulat.get(k).getX() == 3 && nappulat.get(k).getY() == 3 && nappulat.get(k).getId() == ' '){
-								//palauttaa O:n 3,3 kohtaan..
-							}
-						}
-						else if(nappulat.get(j).getX() == 2 && nappulat.get(j).getY() == 3 && nappulat.get(j).getId() == ' '){
-							if(nappulat.get(k).getX() == 3 && nappulat.get(k).getY() == 3 && nappulat.get(k).getId() == 'x'){
-								//palauttaa O:n 2,3 kohtaan..
-							}
-						}
-					}
-				}
-			}
-		}
-//		}	
-//		if(x==1 && y == 3){		
-//			ruutu5 = 3; // t‰m‰ olisi esimerkiksi paras sijoitus O:lle
-//		}
-//		if(x==2 && y==3 ){
-//			ruutu5 = 3; 
-//			ruutu7 = 3; 
-//			ruutu9 = 3; 
-//		}
-//		if(x==3 && y==3){
-//			ruutu5 = 3;
-//		}
-//		if(x==1 && y==2){
-//			ruutu5 =3;
-//		}
-//		if(x==2 && y==2){
-//			ruutu1 = 2;
-//			ruutu3 = 2;
-//			ruutu7 = 2;
-//			ruutu9 = 2;
-//		}
-//		if(x==3 && y==2){
-//			ruutu5 = 3;
-//		}
-//		if(x==1 && y==1){
-//			ruutu5 = 3;
-//		}
-//		if(x==2 && y==1){
-//			ruutu5 = 3; 
-//			ruutu1 = 3; 
-//			ruutu3 = 3; 
-//		}
-//		if(x==3 && y==1){
-//			ruutu5 = 3;
-		}
-	}
-	//.....................noihin pit‰‰ teh‰ jonkinlainen looppi 
-	//					   et ei tartte kirjoittaa k‰sin koko lautaa :D
+	
 	
 
+	static ArrayList<Nappula> siirrot = new ArrayList<>();
+	
+	public static void lisaaSiirtoListaan(){
+
+		siirrot.add(Pelilauta.nappulat.get(Pelilauta.nappulat.size()-1));
+		//System.out.println(siirrot.size()+"vuoro");
+	}
+
+	public static void tyhjennaSiirtoLista(){
+
+		siirrot.removeAll(siirrot);
+	}
+
+	public static void testArvot(){
+		laske();
+		for (int y = 3; y >= 1; y--){
+			for (int x = 1; x <= 3; x++){
+				System.out.print(haeSiirrot(x ,y)+" ");
+				
+			}
+			System.out.println("");
+		}
+	}
+
+	private static int haeSiirrot(int x, int y){
+
+		for (Nappula nappula : siirrot){
+			if (nappula.getX() == x && nappula.getY() == y){
+
+				return nappula.getArvo();
+
+			}
+		}
+		return 0;
+	}
+
+	
+	public static boolean onkoRuutuVapaa(int x, int y){
+		for (Nappula nappula : siirrot){
+			if (nappula.getX() == x && nappula.getY() == y){
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	
+	
+	private static char haeSiirrotId(int x, int y){
+
+		for (Nappula nappula : siirrot){
+			if (nappula.getX() == x && nappula.getY() == y){
+
+				return nappula.getId();
+
+			}
+		}
+		return 'e';
+	}
+	
+	
+	public static void asetaSiirronArvo(int x, int y, int arvo){
+		for (Nappula nappula : siirrot){
+			if (nappula.getX() == x && nappula.getY() == y){
+				nappula.setArvo(arvo);
+			}
+		}
+
+	}
+	
+	
+	
+	//this is where the magic happens
+	public static void laske(){
+		
+		
+
+		//1
+		if(onkoRuutuVapaa(1,3)){
+			int arvo = 0;
+			if(   (onkoRuutuVapaa(2,3) || haeSiirrotId(2,3) == 'X')   &&   (onkoRuutuVapaa(3,3) || haeSiirrotId(3,3) == 'X')) arvo++;
+			if(   (onkoRuutuVapaa(1,2) || haeSiirrotId(1,2) == 'X')   &&   (onkoRuutuVapaa(1,1) || haeSiirrotId(1,1) == 'X')) arvo++;
+			asetaSiirronArvo(1,3,arvo);
+			System.out.println("yolo");
+		}
+	}
+
+	
+}

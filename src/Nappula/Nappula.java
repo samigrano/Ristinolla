@@ -5,6 +5,8 @@ public class Nappula {
 	private int x;
 	private int y;
 	private char id;
+	private int arvo;
+	private int sijainti; //1,2,3,4,5,6,7,8,9
 	
 	
 	public Nappula(int x, int y, char id){
@@ -32,8 +34,21 @@ public class Nappula {
 	public void setId(char id) {
 		this.id = id;
 	}
+
+
+	public int getArvo() {
+		return arvo;
+	}
+	public void setArvo(int arvo){
+		this.arvo = arvo;
+	}
 	
-	
+	public int getSijainti(){
+		return sijainti;
+	}
+	public void setSijainti(int sijainti){
+		this.sijainti = sijainti;
+	}
 	
 	
 }
