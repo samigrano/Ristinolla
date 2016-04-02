@@ -28,19 +28,27 @@ public class Tietokone{
 		
 	}
 	
-	
-	
-	
 	public static int suurinArvo(){
 		int suurin = 0;
 		int indeksi = 0;
 		
 		for (int i = 0; i < r.length; i++){
-			System.out.println(r[i]);
-			
-			if(r[i] > suurin){
+			if(r[i] >= suurin){
 				suurin = r[i];
-				indeksi = i;
+				if(suurin == 0){
+					indeksi = 1;
+					for (int y = 3; y >= 1; y--){
+						for (int x = 1; x <= 3; x++){
+							if(onkoRuutuVapaa(x,y)== false){
+								indeksi++;
+							}
+						}
+						
+					}
+				}
+				else{
+					indeksi = i;
+				}
 			}
 		}
 		for (int i = 0; i < r.length; i++){
@@ -63,21 +71,6 @@ public class Tietokone{
 		
 			
 		}
-		
-	
-
-	private static int haeSiirrot(int x, int y){
-
-		for (Nappula nappula : siirrot){
-			if (nappula.getX() == x && nappula.getY() == y){
-
-				return nappula.getArvo();
-
-			}
-		}
-		return 0;
-	}
-
 	
 	public static boolean onkoRuutuVapaa(int x, int y){
 		for (Nappula nappula : siirrot){

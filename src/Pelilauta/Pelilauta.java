@@ -64,14 +64,15 @@ public class Pelilauta implements Serializable {
 		Tietokone.lisaaSiirtoListaan();
 		Tietokone.laske();
 		Tietokone.testArvot();
+		AiPelaaVuoro();
 		piirraLauta();
 		
-		
+	}
+	public static void AiPelaaVuoro(){	
 		if(TicTacToeFrame.getVuoro() % 2 == 1){
 			TicTacToeFrame.teePainallus(Tietokone.suurinArvo());
 			System.out.println("indeksi: " + Tietokone.suurinArvo());
 		}
-		
 	}
 	
 	//Tällä testataan onko jossain koordinaatissa jokin nappula
@@ -90,7 +91,7 @@ public class Pelilauta implements Serializable {
 	
 	
 	//Käy nappula listan läpi ja tarkistaa onko ruutu annetuilla koordinaateilla vapaa
-	public boolean ruutuVapaa(int x, int y){
+	public static boolean ruutuVapaa(int x, int y){
 		for (Nappula nappula : nappulat){
 			if (nappula.getX() == x && nappula.getY() == y){
 				return false;
