@@ -105,6 +105,7 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		
 		add(p);
 		
+		
 	}
 	
 	@Override
@@ -149,5 +150,15 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 	}
 	
 	
-	
+	public static void teePainallus(int ruutuNumero){
+		if(ruutuNumero == 1) ruutu1.doClick();
+		if(ruutuNumero == 2) ruutu2.doClick();
+		if(ruutuNumero == 3) ruutu3.doClick();
+		if(ruutuNumero == 4) ruutu4.doClick();
+		if(ruutuNumero == 5) ruutu5.doClick();
+		if(ruutuNumero == 6) ruutu6.doClick();
+		if(ruutuNumero == 7) ruutu7.doClick();
+		if(ruutuNumero == 8) ruutu8.doClick();
+		if(ruutuNumero == 9) ruutu9.doClick();
+	}
 }

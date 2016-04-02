@@ -65,6 +65,13 @@ public class Pelilauta implements Serializable {
 		Tietokone.laske();
 		Tietokone.testArvot();
 		piirraLauta();
+		
+		
+		if(TicTacToeFrame.getVuoro() % 2 == 1){
+			TicTacToeFrame.teePainallus(Tietokone.suurinArvo());
+			System.out.println("indeksi: " + Tietokone.suurinArvo());
+		}
+		
 	}
 	
 	//Tällä testataan onko jossain koordinaatissa jokin nappula
