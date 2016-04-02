@@ -14,7 +14,7 @@ public class Pelaaja extends JButton implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 	ImageIcon X,O;
-	static int onkoPainettu = 0;
+	int onkoPainettu = 0;
 	char id; // X == 1, O == 0;
 
 	public Pelaaja(){
@@ -26,8 +26,8 @@ public class Pelaaja extends JButton implements ActionListener{
 		this.id = id;
 	}
 	
-	public static void setOnkoPainettu(int onkoPainettu){
-		Pelaaja.onkoPainettu = onkoPainettu;
+	public void setOnkoPainettu(int onkoPainettu){
+		this.onkoPainettu = onkoPainettu;
 	}
 	
 	public char getId(){
@@ -41,7 +41,6 @@ public class Pelaaja extends JButton implements ActionListener{
 	}
 	
 	public static void enableNappula(){
-		setOnkoPainettu(0);
 		TicTacToeFrame.ruutu1.setEnabled(false);
 		TicTacToeFrame.ruutu2.setEnabled(false);
 		TicTacToeFrame.ruutu3.setEnabled(false);
@@ -52,13 +51,32 @@ public class Pelaaja extends JButton implements ActionListener{
 		TicTacToeFrame.ruutu8.setEnabled(false);
 		TicTacToeFrame.ruutu9.setEnabled(false);
 	}
+	public void onkoVoittoVaiTasa(){
+		if(Pelilauta.tarkastaLauta() == true){
+			JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
+			Pelilauta.voittajanPisteet();
+			enableNappula();
+			JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
+			
+			System.out.println(Pelilauta.getVoittajaX());
+			System.out.println(Pelilauta.getVoittajaO());
+			
+		}
+		if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
+			JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
+			JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
+			enableNappula();
+
+		}
+	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 		System.out.println(onkoPainettu);
-
-		if (onkoPainettu  % 2 == 0){
+		onkoPainettu++;
+		
+		if (onkoPainettu == 1){
 			
 
 			Object nappi = e.getSource();
@@ -77,6 +95,7 @@ public class Pelaaja extends JButton implements ActionListener{
 				setIcon(O);
 				
 			}
+			
 
 			//jokaiselle mahdollislle eri sourcelle oma tapaus
 			//ruutu 1 vastaa koordinaattia (1,3)
@@ -91,24 +110,7 @@ public class Pelaaja extends JButton implements ActionListener{
 
 				Nappula apu13 = new Nappula(1,3,u);
 				Pelilauta.lisaaLautaan(apu13);
-				onkoPainettu++;
-				
-
-				if(Pelilauta.tarkastaLauta() == true){
-					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
-					Pelilauta.voittajanPisteet();
-					enableNappula();
-					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
-					System.out.println(Pelilauta.getVoittajaX());
-					System.out.println(Pelilauta.getVoittajaO());
-					
-				}
-				
-				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
-					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
-					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
-					enableNappula();
-				}
+				onkoVoittoVaiTasa();
 				
 			}
 			if(nappi == TicTacToeFrame.ruutu2){
@@ -117,24 +119,7 @@ public class Pelaaja extends JButton implements ActionListener{
 
 				Nappula apu23 = new Nappula(2,3,u);
 				Pelilauta.lisaaLautaan(apu23);
-				onkoPainettu++;
-
-				if(Pelilauta.tarkastaLauta() == true){
-					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
-					Pelilauta.voittajanPisteet();
-					enableNappula();
-					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
-					System.out.println(Pelilauta.getVoittajaX());
-					System.out.println(Pelilauta.getVoittajaO());
-					
-				}
-				
-				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
-					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
-					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
-					enableNappula();
-
-				}
+				onkoVoittoVaiTasa();
 				
 			}
 			if(nappi == TicTacToeFrame.ruutu3){
@@ -143,24 +128,7 @@ public class Pelaaja extends JButton implements ActionListener{
 
 				Nappula apu33 = new Nappula(3,3,u);
 				Pelilauta.lisaaLautaan(apu33);
-				onkoPainettu++;
-				
-				if(Pelilauta.tarkastaLauta() == true){
-					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
-					Pelilauta.voittajanPisteet();
-					enableNappula();
-					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
-					
-					System.out.println(Pelilauta.getVoittajaX());
-					System.out.println(Pelilauta.getVoittajaO());
-					
-				}
-				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
-					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
-					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
-					enableNappula();
-
-				}
+				onkoVoittoVaiTasa();
 			
 			}
 			if(nappi == TicTacToeFrame.ruutu4){
@@ -169,24 +137,7 @@ public class Pelaaja extends JButton implements ActionListener{
 
 				Nappula apu12 = new Nappula(1,2,u);
 				Pelilauta.lisaaLautaan(apu12);
-				onkoPainettu++;
-				
-				if(Pelilauta.tarkastaLauta() == true){
-					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
-					Pelilauta.voittajanPisteet();
-					enableNappula();
-					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
-					
-					System.out.println(Pelilauta.getVoittajaX());
-					System.out.println(Pelilauta.getVoittajaO());
-					
-				}
-				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
-					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
-					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
-					enableNappula();
-
-				}
+				onkoVoittoVaiTasa();
 				
 			}
 			if(nappi == TicTacToeFrame.ruutu5){
@@ -196,24 +147,7 @@ public class Pelaaja extends JButton implements ActionListener{
 				Nappula apu22 = new Nappula(2,2,u);
 				Pelilauta.lisaaLautaan(apu22);
 				Pelilauta.tarkastaLauta();
-				onkoPainettu++;
-				
-				if(Pelilauta.tarkastaLauta() == true){
-					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
-					Pelilauta.voittajanPisteet();
-					enableNappula();
-					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
-					
-					System.out.println(Pelilauta.getVoittajaX());
-					System.out.println(Pelilauta.getVoittajaO());
-					
-				}
-				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
-					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
-					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
-					enableNappula();
-
-				}
+				onkoVoittoVaiTasa();
 				
 			}
 			if(nappi == TicTacToeFrame.ruutu6){
@@ -222,24 +156,7 @@ public class Pelaaja extends JButton implements ActionListener{
 
 				Nappula apu32 = new Nappula(3,2,u);
 				Pelilauta.lisaaLautaan(apu32);
-				onkoPainettu++;
-				
-				if(Pelilauta.tarkastaLauta() == true){
-					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
-					Pelilauta.voittajanPisteet();
-					enableNappula();
-					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
-					
-					System.out.println(Pelilauta.getVoittajaX());
-					System.out.println(Pelilauta.getVoittajaO());
-					
-				}
-				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
-					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
-					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
-					enableNappula();
-
-				}
+				onkoVoittoVaiTasa();
 				
 			}
 			if(nappi == TicTacToeFrame.ruutu7){
@@ -248,24 +165,7 @@ public class Pelaaja extends JButton implements ActionListener{
 
 				Nappula apu11 = new Nappula(1,1,u);
 				Pelilauta.lisaaLautaan(apu11);
-				onkoPainettu++;
-				
-				if(Pelilauta.tarkastaLauta() == true){
-					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
-					Pelilauta.voittajanPisteet();
-					enableNappula();
-					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
-					
-					System.out.println(Pelilauta.getVoittajaX());
-					System.out.println(Pelilauta.getVoittajaO());
-					
-				}
-				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
-					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
-					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
-					enableNappula();
-
-				}
+				onkoVoittoVaiTasa();
 				
 			}
 			if(nappi == TicTacToeFrame.ruutu8){
@@ -274,24 +174,7 @@ public class Pelaaja extends JButton implements ActionListener{
 
 				Nappula apu21 = new Nappula(2,1,u);
 				Pelilauta.lisaaLautaan(apu21);
-				onkoPainettu++;
-				
-				if(Pelilauta.tarkastaLauta() == true){
-					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
-					Pelilauta.voittajanPisteet();
-					enableNappula();
-					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
-					
-					System.out.println(Pelilauta.getVoittajaX());
-					System.out.println(Pelilauta.getVoittajaO());
-					
-				}
-				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
-					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
-					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
-					enableNappula();
-
-				}
+				onkoVoittoVaiTasa();
 				
 			}
 			if(nappi == TicTacToeFrame.ruutu9){
@@ -300,35 +183,20 @@ public class Pelaaja extends JButton implements ActionListener{
 
 				Nappula apu31 = new Nappula(3,1,u);
 				Pelilauta.lisaaLautaan(apu31);
-				onkoPainettu++;
-				
-				if(Pelilauta.tarkastaLauta() == true){
-					JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
-					Pelilauta.voittajanPisteet();
-					enableNappula();
-					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
-		
-					System.out.println(Pelilauta.getVoittajaX());
-					System.out.println(Pelilauta.getVoittajaO());
-					
-				}
-				if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
-					JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
-					JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
-					enableNappula();
-
-				}
+				onkoVoittoVaiTasa();
 				
 			}
 		}
-		
-		else{
-			onkoPainettu++;
-			TicTacToeFrame.kasvataVuoro();
-			System.out.println("peli ohi");
-		}
+//		
+//		else{
+//			onkoPainettu++;
+//			TicTacToeFrame.kasvataVuoro();
+//			System.out.println("peli ohi");
+//		}
 	}
-
-
+		
 }
+
+
+
 
