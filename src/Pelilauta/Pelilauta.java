@@ -22,8 +22,8 @@ public class Pelilauta implements Serializable {
 	
 	public static ArrayList<Nappula> nappulat = new ArrayList<>();
 	
-	static char voittaja = 'T';
-	static int[] taulukko = new int[2]; //Taulukko indeksi 0 = x, 1= O;
+	private static char voittaja = 'T';
+	private static int[] taulukko = new int[2]; //Taulukko indeksi 0 = x, 1= O;
 	
 	//Tulostus kopioitu suoraan shakkiprojektista
 	public static void piirraLauta(){
@@ -45,15 +45,19 @@ public class Pelilauta implements Serializable {
 		if(Pelilauta.annaVoittaja() == 'X')
 		{taulukko[0]++;}
 		
-		if(Pelilauta.annaVoittaja() == 'O')
+//		if(Pelilauta.annaVoittaja() == 'O')
+		else
 		{taulukko[1]++;}
 	}
+	
 	public static int getVoittajaX(){
 		return taulukko[0];
 	}
+	
 	public static int getVoittajaO(){
 		return taulukko[1];
 	}
+	
 	public static void tyhjennaLauta(){
 			nappulat.removeAll(nappulat);
 			Tietokone.tyhjennaSiirtoLista();

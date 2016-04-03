@@ -3,7 +3,6 @@ package Nappula;
 import java.util.ArrayList;
 
 import Pelilauta.*;
-import Nappula.*;
 
 public class Tietokone{
 	
@@ -15,7 +14,7 @@ public class Tietokone{
 	public static void lisaaSiirtoListaan(){
 
 		siirrot.add(Pelilauta.nappulat.get(Pelilauta.nappulat.size()-1));
-		//System.out.println(siirrot.size()+"vuoro");
+		
 	}
 
 	public static void tyhjennaSiirtoLista(){
@@ -37,7 +36,7 @@ public class Tietokone{
 				suurin = r[i];
 				if(suurin == 0){
 					indeksi = 1;
-					for (int y = 3; y >= 1; y--){
+					for (int y = 3; y >=1; y--){
 						for (int x = 1; x <= 3; x++){
 							if(onkoRuutuVapaa(x,y)== false){
 								indeksi++;
@@ -253,9 +252,7 @@ public class Tietokone{
 
 			if(   (haeSiirrotId(1,3) == 'O')   &&   (haeSiirrotId(3,3) == 'O')) luku = luku + 15;
 			if(   (haeSiirrotId(2,2) == 'O')   &&   (haeSiirrotId(2,1) == 'O')) luku = luku + 15;
-			
-
-
+				
 			r[2] = luku;
 		}
 

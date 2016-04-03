@@ -1,5 +1,4 @@
 package TicTacToe;
-import Nappula.Tietokone;
 import Pelilauta.TicTacToeFrame;
 public class Driver extends TicTacToeFrame{
 

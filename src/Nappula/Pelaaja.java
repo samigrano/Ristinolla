@@ -13,9 +13,9 @@ import Pelilauta.TicTacToeFrame;
 public class Pelaaja extends JButton implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
-	ImageIcon X,O;
-	int onkoPainettu = 0;
-	char id; // X == 1, O == 0;
+	private ImageIcon X,O;
+	private int onkoPainettu = 0;
+	private char id; // X == 1, O == 0;
 
 	public Pelaaja(){
 		X = new ImageIcon(getClass().getResource("X.png"));
@@ -71,6 +71,7 @@ public class Pelaaja extends JButton implements ActionListener{
 		}
 	}
 
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -103,6 +104,7 @@ public class Pelaaja extends JButton implements ActionListener{
 			//ruutu 9 vastaa koordinaattia (3,1)
 			//Nappulaluokka tekee aina uuden olion kun nappia painettu ja 
 			//tallentaa sen tiedot pelilautaluokkaan
+			
 			
 			if(nappi == TicTacToeFrame.ruutu1){
 				
