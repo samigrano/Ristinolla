@@ -77,6 +77,7 @@ public class Pelilauta implements Serializable {
 			TicTacToeFrame.teePainallus(Tietokone.suurinArvo());
 			System.out.println("indeksi: " + Tietokone.suurinArvo());
 		}
+		else{TicTacToeFrame.setVuoro();}
 		}
 	}
 	
@@ -85,11 +86,8 @@ public class Pelilauta implements Serializable {
 	
 		for (Nappula nappula : nappulat){
 			if (nappula.getX() == x && nappula.getY() == y){
-				
 				return nappula.getId();
-				
-			}
-			
+			}		
 		}
 		return 'o';
 	}
@@ -116,7 +114,7 @@ public class Pelilauta implements Serializable {
 	public static char annaVoittaja(){
 		return voittaja;
 	}
-	
+	//Tarkastaa onko tasapeli, kun lauta on täynnä.
 	public static boolean onkoTasapeli(){
 		if (nappulat.size() == 9){
 			return true;

@@ -144,6 +144,9 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 	public static int getVuoro(){
 		return vuoro;
 	}
+	public static void setVuoro(){
+		vuoro = 0;
+	}
 	
 	public static void kasvataVuoro(){
 		vuoro++;

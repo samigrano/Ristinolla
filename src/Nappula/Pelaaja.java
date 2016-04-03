@@ -51,21 +51,24 @@ public class Pelaaja extends JButton implements ActionListener{
 		TicTacToeFrame.ruutu8.setEnabled(false);
 		TicTacToeFrame.ruutu9.setEnabled(false);
 	}
-	public void onkoVoittoVaiTasa(){
+	public void onkoVoitto(){
 
 		if(Pelilauta.tarkastaLauta() == true){
-			JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), getText(), JOptionPane.PLAIN_MESSAGE);
-			JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
-			Pelilauta.voittajanPisteet();
 			enableNappula();
+			Pelilauta.voittajanPisteet();
+			JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), "Voittaja", JOptionPane.PLAIN_MESSAGE);
+			JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), "Pistetilanne", JOptionPane.PLAIN_MESSAGE);
+			
 			System.out.println(Pelilauta.getVoittajaX());
 			System.out.println(Pelilauta.getVoittajaO());
-
 			
 		}
+	}
+	public void onkoTasa(){		
+		
 		if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
 			JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
-			JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), getText(), JOptionPane.PLAIN_MESSAGE);
+			JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), "Pistetilanne", JOptionPane.PLAIN_MESSAGE);
 			enableNappula();
 			
 		}
@@ -114,8 +117,8 @@ public class Pelaaja extends JButton implements ActionListener{
 				Nappula apu13 = new Nappula(1,3,u);
 				apu13.setSijainti(1);
 				Pelilauta.lisaaLautaan(apu13);
-				onkoVoittoVaiTasa();
-				
+				onkoVoitto();
+				onkoTasa();
 			}
 			if(nappi == TicTacToeFrame.ruutu2){
 				char u = this.getId();
@@ -124,8 +127,8 @@ public class Pelaaja extends JButton implements ActionListener{
 				Nappula apu23 = new Nappula(2,3,u);
 				apu23.setSijainti(2);
 				Pelilauta.lisaaLautaan(apu23);
-				onkoVoittoVaiTasa();
-				
+				onkoVoitto();
+				onkoTasa();
 			}
 			if(nappi == TicTacToeFrame.ruutu3){
 				char u = this.getId();
@@ -134,8 +137,8 @@ public class Pelaaja extends JButton implements ActionListener{
 				Nappula apu33 = new Nappula(3,3,u);
 				apu33.setSijainti(3);
 				Pelilauta.lisaaLautaan(apu33);
-				onkoVoittoVaiTasa();
-			
+				onkoVoitto();
+				onkoTasa();
 			}
 			if(nappi == TicTacToeFrame.ruutu4){
 				char u = this.getId();
@@ -144,8 +147,8 @@ public class Pelaaja extends JButton implements ActionListener{
 				Nappula apu12 = new Nappula(1,2,u);
 				apu12.setSijainti(4);
 				Pelilauta.lisaaLautaan(apu12);
-				onkoVoittoVaiTasa();
-				
+				onkoVoitto();
+				onkoTasa();
 			}
 			if(nappi == TicTacToeFrame.ruutu5){
 				char u = this.getId();
@@ -154,8 +157,8 @@ public class Pelaaja extends JButton implements ActionListener{
 				Nappula apu22 = new Nappula(2,2,u);
 				apu22.setSijainti(5);
 				Pelilauta.lisaaLautaan(apu22);
-				onkoVoittoVaiTasa();
-				
+				onkoVoitto();
+				onkoTasa();
 			}
 			if(nappi == TicTacToeFrame.ruutu6){
 				char u = this.getId();
@@ -164,8 +167,8 @@ public class Pelaaja extends JButton implements ActionListener{
 				Nappula apu32 = new Nappula(3,2,u);
 				apu32.setSijainti(6);
 				Pelilauta.lisaaLautaan(apu32);
-				onkoVoittoVaiTasa();
-				
+				onkoVoitto();
+				onkoTasa();
 			}
 			if(nappi == TicTacToeFrame.ruutu7){
 				char u = this.getId();
@@ -174,8 +177,8 @@ public class Pelaaja extends JButton implements ActionListener{
 				Nappula apu11 = new Nappula(1,1,u);
 				apu11.setSijainti(7);
 				Pelilauta.lisaaLautaan(apu11);
-				onkoVoittoVaiTasa();
-				
+				onkoVoitto();
+				onkoTasa();
 			}
 			if(nappi == TicTacToeFrame.ruutu8){
 				char u = this.getId();
@@ -184,8 +187,8 @@ public class Pelaaja extends JButton implements ActionListener{
 				Nappula apu21 = new Nappula(2,1,u);
 				apu21.setSijainti(8);
 				Pelilauta.lisaaLautaan(apu21);
-				onkoVoittoVaiTasa();
-				
+				onkoVoitto();
+				onkoTasa();
 			}
 			if(nappi == TicTacToeFrame.ruutu9){
 				char u = this.getId();
@@ -194,8 +197,8 @@ public class Pelaaja extends JButton implements ActionListener{
 				Nappula apu31 = new Nappula(3,1,u);
 				apu31.setSijainti(9);
 				Pelilauta.lisaaLautaan(apu31);
-				onkoVoittoVaiTasa();
-				
+				onkoVoitto();
+				onkoTasa();
 			}
 		}
 	}

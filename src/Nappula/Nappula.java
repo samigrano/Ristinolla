@@ -8,13 +8,11 @@ public class Nappula {
 	private int arvo;
 	private int sijainti; //1,2,3,4,5,6,7,8,9
 	
-	
 	public Nappula(int x, int y, char id){
 		this.x = x;
 		this.y = y;
 		this.id = id;
 	}
-	
 	
 	public int getX() {
 		return x;
@@ -34,7 +32,6 @@ public class Nappula {
 	public void setId(char id) {
 		this.id = id;
 	}
-
 
 	public int getArvo() {
 		return arvo;

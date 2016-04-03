@@ -20,7 +20,7 @@ public class Tietokone{
 	public static void tyhjennaSiirtoLista(){
 
 		siirrot.removeAll(siirrot);
-		for (int i = 0; i < r.length; i++){
+		for (int i = 1; i < r.length; i++){
 			r[i] = 0;
 			
 		}
@@ -31,7 +31,7 @@ public class Tietokone{
 		int suurin = 0;
 		int indeksi = 0;
 		
-		for (int i = 0; i < r.length; i++){
+		for (int i = 1; i < r.length; i++){
 			if(r[i] >= suurin){
 				suurin = r[i];
 				indeksi = i;
@@ -41,7 +41,6 @@ public class Tietokone{
 		
 			if(suurin == 0){
 				indeksi = 0;
-				System.out.println("pöö");
 				for (int y = 3; y >=1; y--){
 					for (int x = 1; x <= 3; x++){
 						indeksi++;
