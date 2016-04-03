@@ -45,8 +45,7 @@ public class Pelilauta implements Serializable {
 		if(Pelilauta.annaVoittaja() == 'X')
 		{taulukko[0]++;}
 		
-//		if(Pelilauta.annaVoittaja() == 'O')
-		else
+		if(Pelilauta.annaVoittaja() == 'O')
 		{taulukko[1]++;}
 	}
 	
@@ -73,9 +72,11 @@ public class Pelilauta implements Serializable {
 		
 	}
 	public static void AiPelaaVuoro(){	
+		if(tarkastaLauta()==false){
 		if(TicTacToeFrame.getVuoro() % 2 == 1){
 			TicTacToeFrame.teePainallus(Tietokone.suurinArvo());
 			System.out.println("indeksi: " + Tietokone.suurinArvo());
+		}
 		}
 	}
 	
