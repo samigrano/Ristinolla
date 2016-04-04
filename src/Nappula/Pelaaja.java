@@ -16,7 +16,8 @@ public class Pelaaja extends JButton implements ActionListener{
 	private ImageIcon X,O;
 	private int onkoPainettu = 0;
 	private char id; // X == 1, O == 0;
-
+	public static boolean totuus = false;
+	
 	public Pelaaja(){
 		X = new ImageIcon(getClass().getResource("X.png"));
 		O = new ImageIcon(getClass().getResource("O.png"));
@@ -52,16 +53,14 @@ public class Pelaaja extends JButton implements ActionListener{
 		TicTacToeFrame.ruutu9.setEnabled(false);
 	}
 	public void onkoVoitto(){
-
-		if(Pelilauta.tarkastaLauta() == true){
+		if(Pelilauta.tarkastaLauta() == true && !totuus){
+			totuus = true;
 			enableNappula();
 			Pelilauta.voittajanPisteet();
 			JOptionPane.showMessageDialog(null, "Voittaja: "+ Pelilauta.annaVoittaja(), "Voittaja", JOptionPane.PLAIN_MESSAGE);
 			JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), "Pistetilanne", JOptionPane.PLAIN_MESSAGE);
-			
 			System.out.println(Pelilauta.getVoittajaX());
 			System.out.println(Pelilauta.getVoittajaO());
-			
 		}
 	}
 	public void onkoTasa(){		

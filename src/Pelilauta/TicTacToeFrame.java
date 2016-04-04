@@ -116,7 +116,7 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		
 		
 		if(name.equals("New")){
-			
+			Pelaaja.totuus=false;
 			dispose();
 			vuoro = 0;
 			new TicTacToeFrame().setVisible(true);

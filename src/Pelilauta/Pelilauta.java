@@ -14,6 +14,7 @@ import java.util.ArrayList;
  */
 
 import Nappula.Nappula;
+import Nappula.Pelaaja;
 import Nappula.Tietokone;
 public class Pelilauta implements Serializable {
 
@@ -63,13 +64,14 @@ public class Pelilauta implements Serializable {
 		
 	}
 	public static void lisaaLautaan(Nappula uusi){
+		if(!Pelaaja.totuus){
 		nappulat.add(uusi);
 		Tietokone.lisaaSiirtoListaan();
 		Tietokone.laske();
 		Tietokone.testArvot();
 		AiPelaaVuoro();
 		piirraLauta();
-		
+		}
 	}
 	public static void AiPelaaVuoro(){	
 		if(tarkastaLauta()==false){
