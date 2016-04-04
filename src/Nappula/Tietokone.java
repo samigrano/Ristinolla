@@ -160,7 +160,7 @@ public class Tietokone{
 
 		//5
 		if(onkoRuutuVapaa(2,2)){
-			int luku = 0;
+			int luku = 10;
 			if(   (onkoRuutuVapaa(2,3) || haeSiirrotId(2,3) == 'O')   &&   (onkoRuutuVapaa(2,1) || haeSiirrotId(2,1) == 'O')) luku++;
 			if(   (onkoRuutuVapaa(1,2) || haeSiirrotId(1,2) == 'O')   &&   (onkoRuutuVapaa(3,2) || haeSiirrotId(3,2) == 'O')) luku++;
 			if(   (onkoRuutuVapaa(1,1) || haeSiirrotId(1,1) == 'O')   &&   (onkoRuutuVapaa(3,3) || haeSiirrotId(3,3) == 'O')) luku++;
