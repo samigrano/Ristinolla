@@ -1,5 +1,8 @@
 package Nappula;
-
+/*
+ * Tässä luokassa sijaitsee nappulan luontia varten olevat atribuutit, 
+ * konstruktorit sekä asetus ja havainnointi metodit.
+ */
 public class Nappula {
 
 	private int x;

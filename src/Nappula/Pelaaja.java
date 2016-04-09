@@ -9,7 +9,11 @@ import javax.swing.JOptionPane;
 
 import Pelilauta.Pelilauta;
 import Pelilauta.TicTacToeFrame;
-
+/*
+ * Pelaaja luokassa on metodit pelin tilanteen tarkkailuun. Tarkastetaan peli joka siirron
+ * j‰lkeen, onko tullut voittavaa suoraa tai tasapeli‰.  Samoin asetetaan myˆs png-kuvat 
+ * nappuloiden n‰kyvyyteen.
+ */
 public class Pelaaja extends JButton implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
@@ -41,6 +45,7 @@ public class Pelaaja extends JButton implements ActionListener{
 		
 	}
 	
+	//Metodia tarvitaan sammuttamaan nappulat pelin p‰‰tytty‰, jotta olisi mahdollista aloittaa uusipeli
 	public static void enableNappula(){
 		TicTacToeFrame.ruutu1.setEnabled(false);
 		TicTacToeFrame.ruutu2.setEnabled(false);
@@ -52,6 +57,7 @@ public class Pelaaja extends JButton implements ActionListener{
 		TicTacToeFrame.ruutu8.setEnabled(false);
 		TicTacToeFrame.ruutu9.setEnabled(false);
 	}
+	//Metodi testaa onko siirron j‰lkeen tullut laudalle voittavaa suoraa. 
 	public void onkoVoitto(){
 		if(Pelilauta.tarkastaLauta() == true && !totuus){
 			totuus = true;
@@ -63,6 +69,8 @@ public class Pelaaja extends JButton implements ActionListener{
 			System.out.println(Pelilauta.getVoittajaO());
 		}
 	}
+	
+	//Metodi testaa onko siirron j‰lkeen laudalle tullut tasapeli‰
 	public void onkoTasa(){		
 		
 		if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
@@ -72,7 +80,10 @@ public class Pelaaja extends JButton implements ActionListener{
 			
 		}
 	}
-
+/*
+ * Metodissa m‰‰r‰t‰‰n kumman pelaajan vuoro on ja tuleeko napin painalluksesta X vai O ikoni.
+ * Havainnointi tapahtuu vuoron numeroinnin mukaan, onko parillinen vai pariton vuoro menossa.
+ */
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -92,7 +103,7 @@ public class Pelaaja extends JButton implements ActionListener{
 			if(TicTacToeFrame.getVuoro()%2 == 1){
 				this.setId('X');
 				setIcon(X);
-				
+			
 			}
 			if(TicTacToeFrame.getVuoro()%2 == 0){
 				this.setId('O');
@@ -101,12 +112,13 @@ public class Pelaaja extends JButton implements ActionListener{
 			}
 			
 
-			//jokaiselle mahdollislle eri sourcelle oma tapaus
-			//ruutu 1 vastaa koordinaattia (1,3)
-			//ruutu 9 vastaa koordinaattia (3,1)
-			//Nappulaluokka tekee aina uuden olion kun nappia painettu ja 
-			//tallentaa sen tiedot pelilautaluokkaan
-			
+			/*
+			* jokaiselle mahdolliselle vaihtoehdolle on oma tapaus
+			* ruutu 1 vastaa koordinaattia (1,3)
+			* ruutu 9 vastaa koordinaattia (3,1)
+			* Nappulaluokka tekee aina uuden olion kun nappia painettu ja 
+			* tallentaa sen tiedot pelilautaluokkaan
+			*/
 			
 			if(nappi == TicTacToeFrame.ruutu1){
 				

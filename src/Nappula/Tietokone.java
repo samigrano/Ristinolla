@@ -1,22 +1,27 @@
 package Nappula;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import Pelilauta.*;
-
+/*
+ * Luokka sisältää metodit tekoälyn toiminnaksi. 
+ * Tekoäly toimii arvoperiaatteella. Jokaisen siirron jälkeen lasketaan 
+ * jokaiselle ruudulle arvo, ja näiden perusteella painetaan seuraavalla kierroksella nappia.
+ */
 public class Tietokone{
 	
 	static ArrayList<Nappula> siirrot = new ArrayList<>();
 	
 	private static int [] r = new int [10];
-	
+	static Random rnd = new Random();
 	
 	public static void lisaaSiirtoListaan(){
 
 		siirrot.add(Pelilauta.nappulat.get(Pelilauta.nappulat.size()-1));
 		
 	}
-
+// Siirto listan tyhjennys on tärkeä asia, jotta voidaan aloittaa uusipeli
 	public static void tyhjennaSiirtoLista(){
 
 		siirrot.removeAll(siirrot);
@@ -26,7 +31,7 @@ public class Tietokone{
 		}
 		
 	}
-	
+// Suurin arvo on metodi joka palauttaa suurimman arvon napin painamista varten.	
 	public static int suurinArvo(){
 		int suurin = 0;
 		int indeksi = 0;
@@ -72,6 +77,7 @@ public class Tietokone{
 			
 		}
 	
+	// Metodilla testataan onko ruutuvapaa, jota tarvitaan lasketaan.
 	public static boolean onkoRuutuVapaa(int x, int y){
 		for (Nappula nappula : siirrot){
 			if (nappula.getX() == x && nappula.getY() == y){
@@ -105,7 +111,11 @@ public class Tietokone{
 
 	}
 	
-	//this is where the magic happens
+	/*this is where the magic happens
+	 *Jokaisen ruudun kohdalla testataan onko ruutuvapaa, jos ruutu on vapaa lasketaan ruudulle arvo,
+	 *sen perusteella miten omat nappulat on viereisissä ruuduissa.
+	 *Jotkin ruudut sisältävät random generaattorin, jotta tekoälu olisi myös mahdollista voittaa.
+	 */
 	public static void laske(){
 
 
@@ -115,7 +125,7 @@ public class Tietokone{
 			if(   (onkoRuutuVapaa(2,3) || haeSiirrotId(2,3) == 'O')   &&   (onkoRuutuVapaa(3,3) || haeSiirrotId(3,3) == 'O')) luku++;
 			if(   (onkoRuutuVapaa(1,2) || haeSiirrotId(1,2) == 'O')   &&   (onkoRuutuVapaa(1,1) || haeSiirrotId(1,1) == 'O')) luku++;
 			if(   (onkoRuutuVapaa(2,2) || haeSiirrotId(2,2) == 'O')   &&   (onkoRuutuVapaa(3,1) || haeSiirrotId(3,1) == 'O')) luku++;
-
+			if(	  (haeSiirrotId(1,2) == 'X') && (haeSiirrotId(2,3) == 'X'))luku = luku + rnd.nextInt(4);
 			
 
 			r[1] = luku;
@@ -126,7 +136,7 @@ public class Tietokone{
 			int luku = 0;
 			if(   (onkoRuutuVapaa(1,3) || haeSiirrotId(1,3) == 'O')   &&   (onkoRuutuVapaa(3,3) || haeSiirrotId(3,3) == 'O')) luku++;
 			if(   (onkoRuutuVapaa(2,2) || haeSiirrotId(2,2) == 'O')   &&   (onkoRuutuVapaa(2,1) || haeSiirrotId(2,1) == 'O')) luku++;
-			
+			if(   (haeSiirrotId(3,3) == 'X') && (haeSiirrotId(1,1) == 'X' || haeSiirrotId(1,2) == 'X')) luku = luku + rnd.nextInt(4);
 			
 
 			r[2] = luku;
@@ -138,7 +148,7 @@ public class Tietokone{
 			if(   (onkoRuutuVapaa(2,3) || haeSiirrotId(2,3) == 'O')   &&   (onkoRuutuVapaa(1,3) || haeSiirrotId(1,3) == 'O')) luku++;
 			if(   (onkoRuutuVapaa(3,2) || haeSiirrotId(3,2) == 'O')   &&   (onkoRuutuVapaa(3,1) || haeSiirrotId(3,1) == 'O')) luku++;
 			if(   (onkoRuutuVapaa(2,2) || haeSiirrotId(2,2) == 'O')   &&   (onkoRuutuVapaa(1,1) || haeSiirrotId(1,1) == 'O')) luku++;
-
+			if(   (haeSiirrotId(3,2) == 'X') && (haeSiirrotId(2,3) == 'X')) luku = luku + rnd.nextInt(4);
 			
 
 			r[3] = luku;
@@ -160,7 +170,7 @@ public class Tietokone{
 
 		//5
 		if(onkoRuutuVapaa(2,2)){
-			int luku = 10;
+			int luku = rnd.nextInt(6);
 			if(   (onkoRuutuVapaa(2,3) || haeSiirrotId(2,3) == 'O')   &&   (onkoRuutuVapaa(2,1) || haeSiirrotId(2,1) == 'O')) luku++;
 			if(   (onkoRuutuVapaa(1,2) || haeSiirrotId(1,2) == 'O')   &&   (onkoRuutuVapaa(3,2) || haeSiirrotId(3,2) == 'O')) luku++;
 			if(   (onkoRuutuVapaa(1,1) || haeSiirrotId(1,1) == 'O')   &&   (onkoRuutuVapaa(3,3) || haeSiirrotId(3,3) == 'O')) luku++;
@@ -189,11 +199,11 @@ public class Tietokone{
 		//7
 		if(onkoRuutuVapaa(1,1)){
 			int luku = 0;
+			if(   (haeSiirrotId(2,2) == 'X') && (haeSiirrotId(1,3) == 'X')) luku = luku + 15;
 			if(   (onkoRuutuVapaa(1,2) || haeSiirrotId(1,2) == 'O')   &&   (onkoRuutuVapaa(1,3) || haeSiirrotId(1,3) == 'O')) luku++;
 			if(   (onkoRuutuVapaa(2,1) || haeSiirrotId(2,1) == 'O')   &&   (onkoRuutuVapaa(3,1) || haeSiirrotId(3,1) == 'O')) luku++;
 			if(   (onkoRuutuVapaa(2,2) || haeSiirrotId(2,2) == 'O')   &&   (onkoRuutuVapaa(3,3) || haeSiirrotId(3,3) == 'O')) luku++;
-
-			
+			if(	  (haeSiirrotId(2,1) == 'X') && (haeSiirrotId(1,2) == 'X'))luku = luku +rnd.nextInt(4);
 
 			r[7] = luku;
 		}
@@ -217,15 +227,17 @@ public class Tietokone{
 			if(   (onkoRuutuVapaa(1,1) || haeSiirrotId(1,1) == 'O')   &&   (onkoRuutuVapaa(2,1) || haeSiirrotId(2,1) == 'O')) luku++;
 			if(   (onkoRuutuVapaa(3,2) || haeSiirrotId(3,2) == 'O')   &&   (onkoRuutuVapaa(3,3) || haeSiirrotId(3,3) == 'O')) luku++;
 			if(   (onkoRuutuVapaa(2,2) || haeSiirrotId(2,2) == 'O')   &&   (onkoRuutuVapaa(1,3) || haeSiirrotId(1,3) == 'O')) luku++;
-
+			if(	  (haeSiirrotId(2,1) == 'X') && (haeSiirrotId(3,2) == 'X'))luku = luku + rnd.nextInt(4);
 			
 
 			r[9] = luku;
 		}
 		
 		
-		//vastustajan testaus
-		
+		/*
+		 * Tästä eteenpäin lasketaan aikaisempiin arvoihin muutokset, miten vastustajan nappulat ovat sijoittuneet.
+		 * Ja jos esimerkiksi vastustaja on saamassa voittosuoran seuraavalla vuorolla, kasvaa tämän ruudunarvo muita enemmän.
+		 */
 		
 		//1
 		if(onkoRuutuVapaa(1,3)){

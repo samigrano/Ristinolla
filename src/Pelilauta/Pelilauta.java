@@ -26,7 +26,7 @@ public class Pelilauta implements Serializable {
 	private static char voittaja = 'T';
 	private static int[] taulukko = new int[2]; //Taulukko indeksi 0 = x, 1= O;
 	
-	//Tulostus kopioitu suoraan shakkiprojektista
+	//Laudan piirto metodi.
 	public static void piirraLauta(){
 		int riviNumero = 3;
 		for (int y = 3; y >= 1; y--){
@@ -42,6 +42,7 @@ public class Pelilauta implements Serializable {
 		System.out.println("   1  2  3");
 	
 	}
+	// Lis‰‰ voittajalle pisteen taulukkoon joka tulostetaan pelin j‰lkeen n‰kyviin. 
 	public static void voittajanPisteet(){
 		if(Pelilauta.annaVoittaja() == 'X')
 		{taulukko[0]++;}
@@ -58,11 +59,14 @@ public class Pelilauta implements Serializable {
 		return taulukko[1];
 	}
 	
+	
 	public static void tyhjennaLauta(){
 			nappulat.removeAll(nappulat);
 			Tietokone.tyhjennaSiirtoLista();
 		
 	}
+	
+	//Ohjaa tietokoneen pelaamista.
 	public static void lisaaLautaan(Nappula uusi){
 		if(!Pelaaja.totuus){
 		nappulat.add(uusi);
@@ -73,6 +77,10 @@ public class Pelilauta implements Serializable {
 		piirraLauta();
 		}
 	}
+	/*
+	 * Tekee tietokoneen painalluksen vuorolla, jos peli on yh‰ k‰ynniss‰.
+	 * Jos peli on p‰‰ttynyt ehto est‰‰ tietokonetta painamasta.
+	 */
 	public static void AiPelaaVuoro(){	
 		if(tarkastaLauta()==false){
 		if(TicTacToeFrame.getVuoro() % 2 == 1){
