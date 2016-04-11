@@ -62,7 +62,9 @@ public class Pelilauta implements Serializable {
 		return taulukko[1];
 	}
 	
-	
+	/**
+	 * Method clear the board.
+	 */
 	public static void tyhjennaLauta(){
 			nappulat.removeAll(nappulat);
 			Tietokone.tyhjennaSiirtoLista();
@@ -70,6 +72,10 @@ public class Pelilauta implements Serializable {
 	}
 	
 	//Ohjaa tietokoneen pelaamista.
+	/**
+	 * Method add a new button to the board and use the AI calculation method.
+	 * @param uusi
+	 */
 	public static void lisaaLautaan(Nappula uusi){
 		if(!Pelaaja.totuus){
 		nappulat.add(uusi);
@@ -84,6 +90,9 @@ public class Pelilauta implements Serializable {
 	 * Tekee tietokoneen painalluksen vuorolla, jos peli on yhä käynnissä.
 	 * Jos peli on päättynyt ehto estää tietokonetta painamasta.
 	 */
+	/**
+	 * Method check if its a computer turn and if it is, do the click. 
+	 */
 	public static void AiPelaaVuoro(){	
 		if(tarkastaLauta()==false){
 		if(TicTacToeFrame.getVuoro() % 2 == 1){
@@ -95,6 +104,12 @@ public class Pelilauta implements Serializable {
 	}
 	
 	//Tällä testataan onko jossain koordinaatissa jokin nappula
+	/**
+	 * Method get the button from the arraylist.
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	private static char haeNappula(int x, int y){
 	
 		for (Nappula nappula : nappulat){
@@ -107,6 +122,12 @@ public class Pelilauta implements Serializable {
 	
 	
 	//Käy nappula listan läpi ja tarkistaa onko ruutu annetuilla koordinaateilla vapaa
+	/**
+	 * Method check is the coordinates free
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public static boolean ruutuVapaa(int x, int y){
 		for (Nappula nappula : nappulat){
 			if (nappula.getX() == x && nappula.getY() == y){
@@ -128,6 +149,10 @@ public class Pelilauta implements Serializable {
 		return voittaja;
 	}
 	//Tarkastaa onko tasapeli, kun lauta on täynnä.
+	/**
+	 * Method check is the board full
+	 * @return boolean
+	 */
 	public static boolean onkoTasapeli(){
 		if (nappulat.size() == 9){
 			return true;
@@ -141,6 +166,11 @@ public class Pelilauta implements Serializable {
 	 * Kutsuu vaaka- ,pysty- ja vinojen- rivien tarkistusmetodeita. 
 	 * Palauttaa true jos joltain riviltä löytyy kolme samaa nappulaa.
 	*/
+	/**
+	 * Method check the boards lines if there a winner 
+	 * its return that button object
+	 * @return
+	 */
 	public static boolean tarkastaLauta(){
 
 		if(tarkastaYlinVaakarivi()){
@@ -184,6 +214,10 @@ public class Pelilauta implements Serializable {
 	 * Sen jälkeen vertaa löytyykö (2,3) ja (3,3) sama id.
 	 * Jos löytyy palautetaan true.
 	*/
+	/**
+	 * Method checks lines if there is winning situation
+	 * @return boolean
+	 */
 	public static boolean tarkastaYlinVaakarivi(){
 		int laskuri = 0;
 		char id = 'e'; // 'e' empty aluksi
@@ -214,6 +248,10 @@ public class Pelilauta implements Serializable {
 	 * Sen jälkeen vertaa löytyykö (2,1) ja (3,1) sama id.
 	 * Jos löytyy palautetaan true.
 	*/
+	/**
+	 * Method checks lines if there is winning situation
+	 * @return boolean
+	 */
 	public static boolean tarkastaAlinVaakarivi(){
 		int laskuri = 0;
 		char id = 'e';
@@ -243,6 +281,10 @@ public class Pelilauta implements Serializable {
 	 * Sen jälkeen vertaa löytyykö (2,2) ja (3,2) sama id.
 	 * Jos löytyy palautetaan true.
 	*/
+	/**
+	 * Method checks lines if there is winning situation
+	 * @return boolean
+	 */
 	public static boolean tarkastaKeskimmäinenVaakarivi(){
 		int laskuri = 0;
 		char id = 'e';
@@ -272,6 +314,10 @@ public class Pelilauta implements Serializable {
 	 * Sen jälkeen vertaa löytyykö (1,2) ja (1,3) sama id.
 	 * Jos löytyy palautetaan true.
 	*/
+	/**
+	 * Method checks lines if there is winning situation
+	 * @return boolean
+	 */
 	public static boolean tarkastaVasenPystyrivi(){
 		int laskuri = 0;
 		char id = 'e'; // 'e' empty aluksi
@@ -301,6 +347,10 @@ public class Pelilauta implements Serializable {
 	 * Sen jälkeen vertaa löytyykö (2,2) ja (2,3) sama id.
 	 * Jos löytyy palautetaan true.
 	*/
+	/**
+	 * Method checks lines if there is winning situation
+	 * @return boolean
+	 */
 	public static boolean tarkastaKeskiPystyrivi(){
 		int laskuri = 0;
 		char id = 'e'; // 'e' empty aluksi
@@ -330,6 +380,10 @@ public class Pelilauta implements Serializable {
 	 * Sen jälkeen vertaa löytyykö (3,2) ja (3,3) sama id.
 	 * Jos löytyy palautetaan true.
 	*/
+	/**
+	 * Method checks lines if there is winning situation
+	 * @return boolean
+	 */
 	public static boolean tarkastaOikeaPystyrivi(){
 		int laskuri = 0;
 		char id = 'e'; // 'e' empty aluksi
@@ -359,6 +413,10 @@ public class Pelilauta implements Serializable {
 	 * Sen jälkeen vertaa löytyykö (2,2) ja (3,3) sama id.
 	 * Jos löytyy palautetaan true.
 	*/
+	/**
+	 * Method checks lines if there is winning situation
+	 * @return boolean
+	 */
 	public static boolean tarkastaVinoVasenalaOikeayla(){
 		int laskuri = 0;
 		char id = 'e'; // 'e' empty aluksi
@@ -388,6 +446,10 @@ public class Pelilauta implements Serializable {
 	 * Sen jälkeen vertaa löytyykö (2,2) ja (3,1) sama id.
 	 * Jos löytyy palautetaan true.
 	*/
+	/**
+	 * Method checks lines if there is winning situation
+	 * @return boolean
+	 */
 	public static boolean tarkastaVinoVasenylaOikeaala(){
 		int laskuri = 0;
 		char id = 'e'; // 'e' empty aluksi

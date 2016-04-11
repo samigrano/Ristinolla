@@ -98,7 +98,8 @@ public class Pelaaja extends JButton implements ActionListener{
 
 	@Override
 	/**
-	 * Method checks the source of button which performed action. Sets the icon for the button depending what is the value of onkoPainettu.
+	 * Method checks the source of button which performed action. 
+	 * Sets the icon for the button depending what is the value of onkoPainettu.
 	 *  
 	 */
 	public void actionPerformed(ActionEvent e) {

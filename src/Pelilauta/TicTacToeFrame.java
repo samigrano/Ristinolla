@@ -1,5 +1,9 @@
 package Pelilauta;
-
+/*
+ * Luokassa luodaan pelin graafinen käyttöliittymä. 
+ * Aluksi luodaan uudet nappulat, kehys nappuloille ja pelin valikot kehykseen.
+ * Nappulat liitetään kehykseen ja niille asetetaan ationlistener ja actionperformed
+ */
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -107,13 +111,15 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 		
 		
 	}
-	
+	/*
+	 *Metodissa ylikirjoitetaan actionperformed ja luodaan 
+	 *Save, Load ja Exit napille toiminnalisuudet
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 	
 		
 		String name = e.getActionCommand();
-		
 		
 		if(name.equals("New")){
 			Pelaaja.totuus=false;
@@ -151,7 +157,14 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
 	public static void kasvataVuoro(){
 		vuoro++;
 	}
-	
+	/*
+	 * Tarvitaan tekoälyn toiminnalisuuden yhdistämiseen 
+	 * graafiseen käyttöliittymään.
+	 */
+	/**
+	 * Method check what square number it is and push that button number.
+	 * @param ruutuNumero
+	 */
 	
 	public static void teePainallus(int ruutuNumero){
 		if(ruutuNumero == 1) ruutu1.doClick();
