@@ -16,12 +16,18 @@ public class Tietokone{
 	private static int [] r = new int [10];
 	static Random rnd = new Random();
 	
+	/**
+	 * Method adds nappula object in the ArrayList.
+	 */
 	public static void lisaaSiirtoListaan(){
 
 		siirrot.add(Pelilauta.nappulat.get(Pelilauta.nappulat.size()-1));
 		
 	}
 // Siirto listan tyhjennys on tärkeä asia, jotta voidaan aloittaa uusipeli
+	/**
+	 * Removes every index of the siirrot ArrayList.
+	 */
 	public static void tyhjennaSiirtoLista(){
 
 		siirrot.removeAll(siirrot);
@@ -32,6 +38,10 @@ public class Tietokone{
 		
 	}
 // Suurin arvo on metodi joka palauttaa suurimman arvon napin painamista varten.	
+	/**
+	 * Method finds the highest value from r[] and returns the index number of that value.
+	 * @return
+	 */
 	public static int suurinArvo(){
 		int suurin = 0;
 		int indeksi = 0;
@@ -61,7 +71,9 @@ public class Tietokone{
 		}
 		return indeksi;
 	}
-
+	/**
+	 * Method draws a values which r[] holds in the IDE console
+	 */
 	public static void testArvot(){
 		
 		for (int i = 1; i < r.length; i++){
@@ -78,6 +90,12 @@ public class Tietokone{
 		}
 	
 	// Metodilla testataan onko ruutuvapaa, jota tarvitaan lasketaan.
+	/**
+	 * Method checks if the siirrot ArrayList holds a nappula object with given x and y coordinates and returns boolean.
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public static boolean onkoRuutuVapaa(int x, int y){
 		for (Nappula nappula : siirrot){
 			if (nappula.getX() == x && nappula.getY() == y){
@@ -88,7 +106,12 @@ public class Tietokone{
 	}
 	
 	
-	
+	/**
+	 * Method finds the id of the nappula object from the siirrot ArrayList with given coordinates. Returns id or char 'e' if the object is not found.
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	private static char haeSiirrotId(int x, int y){
 
 		for (Nappula nappula : siirrot){
@@ -101,7 +124,12 @@ public class Tietokone{
 		return 'e';
 	}
 	
-	
+	/**
+	 * Method sets arvo parameter for nappula object with given coordinates.
+	 * @param x
+	 * @param y
+	 * @param luku
+	 */
 	public static void asetaSiirronArvo(int x, int y, int luku){
 		for (Nappula nappula : siirrot){
 			if (nappula.getX() == x && nappula.getY() == y){
@@ -115,6 +143,9 @@ public class Tietokone{
 	 *Jokaisen ruudun kohdalla testataan onko ruutuvapaa, jos ruutu on vapaa lasketaan ruudulle arvo,
 	 *sen perusteella miten omat nappulat on viereisissä ruuduissa.
 	 *Jotkin ruudut sisältävät random generaattorin, jotta tekoälu olisi myös mahdollista voittaa.
+	 */
+	/**
+	 * Method calculates the values of for each game tiles which are free.
 	 */
 	public static void laske(){
 
@@ -170,7 +201,7 @@ public class Tietokone{
 
 		//5
 		if(onkoRuutuVapaa(2,2)){
-			int luku = rnd.nextInt(6);
+			int luku = rnd.nextInt(5);
 			if(   (onkoRuutuVapaa(2,3) || haeSiirrotId(2,3) == 'O')   &&   (onkoRuutuVapaa(2,1) || haeSiirrotId(2,1) == 'O')) luku++;
 			if(   (onkoRuutuVapaa(1,2) || haeSiirrotId(1,2) == 'O')   &&   (onkoRuutuVapaa(3,2) || haeSiirrotId(3,2) == 'O')) luku++;
 			if(   (onkoRuutuVapaa(1,1) || haeSiirrotId(1,1) == 'O')   &&   (onkoRuutuVapaa(3,3) || haeSiirrotId(3,3) == 'O')) luku++;

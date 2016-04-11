@@ -27,6 +27,9 @@ public class Pelilauta implements Serializable {
 	private static int[] taulukko = new int[2]; //Taulukko indeksi 0 = x, 1= O;
 	
 	//Laudan piirto metodi.
+	/**
+	 * Method draws a game board.
+	 */
 	public static void piirraLauta(){
 		int riviNumero = 3;
 		for (int y = 3; y >= 1; y--){

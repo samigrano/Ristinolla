@@ -30,7 +30,10 @@ public class Pelaaja extends JButton implements ActionListener{
 	public void setId(char id){
 		this.id = id;
 	}
-	
+	/**
+	 * Method changes the value of onkoPainettu
+	 * @param onkoPainettu
+	 */
 	public void setOnkoPainettu(int onkoPainettu){
 		this.onkoPainettu = onkoPainettu;
 	}
@@ -46,6 +49,9 @@ public class Pelaaja extends JButton implements ActionListener{
 	}
 	
 	//Metodia tarvitaan sammuttamaan nappulat pelin p‰‰tytty‰, jotta olisi mahdollista aloittaa uusipeli
+	/**
+	 * Method sets setEnable() value as false for all the button at once.
+	 */
 	public static void enableNappula(){
 		TicTacToeFrame.ruutu1.setEnabled(false);
 		TicTacToeFrame.ruutu2.setEnabled(false);
@@ -58,6 +64,9 @@ public class Pelaaja extends JButton implements ActionListener{
 		TicTacToeFrame.ruutu9.setEnabled(false);
 	}
 	//Metodi testaa onko siirron j‰lkeen tullut laudalle voittavaa suoraa. 
+	/**
+	 * Method checks if the game is ended with winning move and sends message for user.
+	 */
 	public void onkoVoitto(){
 		if(Pelilauta.tarkastaLauta() == true && !totuus){
 			totuus = true;
@@ -71,8 +80,10 @@ public class Pelaaja extends JButton implements ActionListener{
 	}
 	
 	//Metodi testaa onko siirron j‰lkeen laudalle tullut tasapeli‰
+	/**
+	 * Method checks if the game is ended with tie and sends message to user.
+	 */
 	public void onkoTasa(){		
-		
 		if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
 			JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.PLAIN_MESSAGE);
 			JOptionPane.showMessageDialog(null, "X: "+ Pelilauta.getVoittajaX()+ " ja " + "O: "+ Pelilauta.getVoittajaO(), "Pistetilanne", JOptionPane.PLAIN_MESSAGE);
@@ -86,6 +97,10 @@ public class Pelaaja extends JButton implements ActionListener{
  */
 
 	@Override
+	/**
+	 * Method checks the source of button which performed action. Sets the icon for the button depending what is the value of onkoPainettu.
+	 *  
+	 */
 	public void actionPerformed(ActionEvent e) {
 		
 		System.out.println(onkoPainettu);
