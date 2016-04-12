@@ -145,7 +145,7 @@ public class Tietokone{
 	 *Jotkin ruudut sisältävät random generaattorin, jotta tekoälu olisi myös mahdollista voittaa.
 	 */
 	/**
-	 * Method calculates the values of for each game tiles which are free.
+	 * Method calculates the values for each game tile that are free.
 	 */
 	public static void laske(){
 

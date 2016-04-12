@@ -65,7 +65,7 @@ public class Pelaaja extends JButton implements ActionListener{
 	}
 	//Metodi testaa onko siirron jälkeen tullut laudalle voittavaa suoraa. 
 	/**
-	 * Method checks if the game is ended with winning move and sends message for user.
+	 * Method checks if the game has ended with winning move and sends message for user.
 	 */
 	public void onkoVoitto(){
 		if(Pelilauta.tarkastaLauta() == true && !totuus){
@@ -81,7 +81,7 @@ public class Pelaaja extends JButton implements ActionListener{
 	
 	//Metodi testaa onko siirron jälkeen laudalle tullut tasapeliä
 	/**
-	 * Method checks if the game is ended with tie and sends message to user.
+	 * Method checks if the game has ended with tie and sends message to user.
 	 */
 	public void onkoTasa(){		
 		if (Pelilauta.onkoTasapeli() == true && Pelilauta.tarkastaLauta() == false){
