@@ -1,4 +1,10 @@
 package Pelilauta;
+	
+/*
+ * Pelilauta luokassa on metodit pelin konsoli gradiikkaa, 
+ * nappuloiden lis‰‰mist‰ ja voittorivien tarkistamista varten.
+ * Luokassa on myˆs pistelasku taulukko.
+ */
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -7,12 +13,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-
-/*
- * Luokka on t‰ll‰ hetkell‰ erroris, kun nappi ei toimi en‰‰ n‰in.
- * Mutta pit‰‰ koittaa kytkee n‰‰ s‰‰nnˆt tohon uuteen grafiikkaan.
- */
-
 import Nappula.Nappula;
 import Nappula.Pelaaja;
 import Nappula.Tietokone;
